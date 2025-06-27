@@ -31,6 +31,8 @@
 #header {
     display: flex;
     justify-self: center;
+    align-items: center;
+    justify-content: center;
     padding-top: 1.25em;
     padding-bottom: 1.25em;
     margin-top: 2dvh;

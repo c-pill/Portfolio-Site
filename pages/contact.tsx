@@ -26,8 +26,6 @@ export default function ContactMe() {
 
         AddGrowText("If you'd like to reach out, please do!", 'h1');
         AddGrowText('Click the screen to start/stop icons', 'h3');
-        AddGrowText('Click on an icon to be redirected', 'h3');
-        AddGrowText("Click 'Contact Me' a few times to get unexpected behavior!", 'h6');
     });
     
     AnimateContactBalls();

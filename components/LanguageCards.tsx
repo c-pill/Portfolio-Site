@@ -45,7 +45,7 @@ export function Java() {
 export function Swift() {
     return (
         <a href='https://www.swift.org/' className={styles.infoCard} target='_blank' title='Swift'>
-            <Image crossOrigin='anonymous' className={styles.infoImg} alt='Swift' src='https://developer.apple.com/assets/elements/icons/swift/swift-256x256_2x.png' width={100} height={100}/>
+            <Image crossOrigin='anonymous' className={styles.infoImg} alt='Swift' src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Swift_logo.svg/640px-Swift_logo.svg.png' width={100} height={100}/>
         </a>
     );
 };

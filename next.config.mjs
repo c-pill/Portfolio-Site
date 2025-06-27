@@ -9,11 +9,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'developer.apple.com',
-        pathname: '/assets/elements/icons/swift/swift-256x256_2x.png'
-      },
-      {
-        protocol: 'https',
         hostname: 'mongoosejs.com',
         pathname: '/docs/images/mongoose5_62x30_transparent.png'
       },

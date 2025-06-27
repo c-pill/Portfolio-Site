@@ -100,7 +100,7 @@
     margin: 0;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1180px) {
     .sortOption {
         font-weight: bolder;
         border-radius: 2.5em;
@@ -112,7 +112,7 @@
     }
 }
 
-@media (min-width: 701px) {
+@media (min-width: 1181px) {
     .sortOption {
         font-weight: bolder;
         border-radius: 2.5em;

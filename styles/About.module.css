@@ -1,0 +1,195 @@
+.codingContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    gap: 5em;
+    margin-bottom: 3em;
+    padding: 2dvh;
+    width: 85%;
+    height: fit-content;
+}
+
+#aboutContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    grid-area: 'aboutContainer';
+    border-radius: 2.5em;
+}
+
+#aboutContainer::-webkit-scrollbar {
+    width: 12px;
+}
+
+#aboutContainer::-webkit-scrollbar-track {
+    background-color: rgb(22, 144, 196);
+    width: 30px;
+}
+
+#aboutContainer::-webkit-scrollbar-thumb {
+    background-color: gainsboro;
+}
+
+#sidebar {
+    grid-area: 'sidebar';
+    display: flex;
+    flex-direction: column;
+    border-right: 10px solid rgb(22, 144, 196);
+}
+
+#sidebar > * {
+    position: relative;
+    width: fit-content;
+    top: 2dvh;
+    margin: 2dvh;
+    padding: 0;
+}
+
+#sidebar > *:hover {
+    color:  rgb(22, 144, 196);
+    cursor: pointer;
+}
+
+.rowTitle {
+    width: fit-content;
+    align-self: center;
+    padding-bottom: 20px
+}
+
+@media (max-width: 700px) {
+    .workContainerL {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .workContainerR {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .infoImg {
+        width: auto;
+        height: max(11dvw, 50px);
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+    .infoCard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: max(13dvw, 70px);
+        aspect-ratio: 1/1;
+        border-radius: 25%;
+        transition: ease-in-out box-shadow 1s;
+    }
+}
+
+@media (min-width: 701px) {
+    .workContainerL {
+        display: grid;
+        justify-self: center;
+        align-items: center;
+        grid-template-areas: 'image text';
+        grid-column: 3fr 5fr;
+        padding: 0;
+    }
+
+    .workContainerR {
+        display: grid;
+        justify-self: center;
+        align-items: center;
+        grid-template-areas: 'text image';
+        grid-column: 5fr 3fr;
+        padding: 0;
+    }
+
+    .infoImg {
+        width: auto;
+        height: max(9dvh, 50px);
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+    .infoCard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: max(11dvh, 70px);
+        aspect-ratio: 1/1;
+        border-radius: 25%;
+        transition: ease-in-out box-shadow 1s;
+    }
+}
+
+.workImage {
+    grid-area: image;
+    position: relative;
+    width: auto;
+    height: max(30dvh, 135px);
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    background-size: contain;
+    padding: 0;
+}
+
+.workImageContainerL {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: auto;
+    height: max(30dvh, 135px);
+    object-fit: contain;
+
+}
+
+.workImageContainerR {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: auto;
+    height: max(30dvh, 135px);
+    object-fit: contain;
+}
+
+.workImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: max(30dvh, 135px);
+    object-fit: contain;
+    padding: 0;
+}
+
+.workImageContainer > * {
+    padding: 0;
+}
+
+.workText {
+    grid-area: text;
+}
+
+.workText > * {
+    margin-top: 1dvh;
+    margin-bottom: 1dvh;
+}
+
+.workText > h5 {
+    margin-bottom: 3dvh;
+}
+
+.bullet::before {
+    content: '▪️';
+}

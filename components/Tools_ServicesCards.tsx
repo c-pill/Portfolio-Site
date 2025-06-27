@@ -121,3 +121,11 @@ export function Figma() {
         </a>
     );
 };
+
+export function Vercel() {
+    return (
+        <a href='https://vercel.com/docs' className={styles.infoCard} target='_blank' title='Vercel'>
+            <Image crossOrigin='anonymous' className={styles.infoImg} alt='Vercel' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ionicons_logo-vercel.svg/640px-Ionicons_logo-vercel.svg.png' width={100} height={100}/>
+        </a>
+    );
+};

@@ -4,7 +4,7 @@ import styles from '@/styles/About.module.css';
 import '@/components/LanguageCards';
 import { C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from '@/components/LanguageCards';
 import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from '@/components/FrameworkCards';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Xcode } from '@/components/Tools_ServicesCards';
+import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Xcode } from '@/components/Tools_ServicesCards';
 import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/WorkContainers';
 import { ChangeCardShadows } from '@/public/scripts/globals';
 import React from 'react';
@@ -125,6 +125,7 @@ export function AboutCoding() {
                 <GitHub />
                 <Matlab />
                 <Xcode />
+                <Vercel />
                 <Postman />
                 <VirtualBox />
                 <MSOffice />

@@ -14,11 +14,6 @@ export default function ContactMe() {
         
         header.style.zIndex = '2';
 
-        body.style.position = 'absolute';
-        body.style.top = '0';
-        body.style.left = '0';
-        body.style.height = '100dvh';
-        body.style.width = '100dvw';
         body.style.overflowY = 'hidden';
         body.style.background = 'rgb(69, 157, 78)';
         
@@ -33,11 +28,7 @@ export default function ContactMe() {
         AddGrowText('Click the screen to start/stop icons', 'h3');
         AddGrowText('Click on an icon to be redirected', 'h3');
         AddGrowText("Click 'Contact Me' a few times to get unexpected behavior!", 'h6');
-
-        return () => { 
-            content.innerHTML = '';
-        }
-    }, []);
+    });
     
     AnimateContactBalls();
     

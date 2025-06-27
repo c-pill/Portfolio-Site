@@ -20,7 +20,7 @@ export default function ProjectList() {
 
         content.style.background = 'none';
         content.style.overflowX = 'auto';
-        content.style.overflowY = 'hidden';
+        content.style.overflowY = 'scroll';
         content.style.height = '100%';
         content.style.width = '70dvw';
         content.style.scrollbarWidth = 'none';

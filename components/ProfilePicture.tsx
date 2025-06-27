@@ -11,7 +11,6 @@ export default function ProfilePicture() {
             alt='Connor Pillsworth'
             width={100}
             height={100}
-            unoptimized={true}
             priority={false}
         />
     )

@@ -6,7 +6,7 @@ export function EdibleBrands() {
     return (
         <div className={styles.workContainerR}>
             <a href='https://www.ediblearrangements.com/' className={styles.workImageContainerL} target='_blank' title='Edible Brands'>
-                <Image className={styles.workImage} unoptimized={true} alt='Edible Brands' src='/edible.gif' width={100} height={100}/>
+                <Image className={styles.workImage} alt='Edible Brands' src='/edible.gif' width={100} height={100}/>
             </a>
             <ul className={styles.workText}>
                 <h3>

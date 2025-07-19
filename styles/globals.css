@@ -29,8 +29,10 @@ body {
     padding: 2em;
     text-decoration: none;
     user-select: none;
+    width: fit-content;
     height: fit-content;
     font-size: clamp(10px, 1dvw, 15px);
+    font-weight: bold;
 }
 
 #header > *:hover {

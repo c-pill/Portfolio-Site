@@ -105,13 +105,14 @@
 }
 
 #searchBar {
-    font-size: large;
+    font-size: clamp(15px, 1dvw, 25px);
     font-weight: bolder;
     align-self: center;
     padding-left: 20px;
     border-radius: 2.5em;
     box-shadow: 0px 0px 35px 1px black;
     width: 60dvw;
+    max-width: 650px;
     height: 45px;
     border-width: 0;
     transition: box-shadow ease-in-out 0.5s;
@@ -145,10 +146,11 @@
 }
 
 .sortOption {
+    flex-basis: 100px;
+    flex-shrink: 1;
     font-weight: bolder;
     border-radius: 2.5em;
     box-shadow: 0px 0px 35px 1px black;
-    width: 100px;
     height: clamp(30px, 2dvw, 65px);
     border-width: 0;
     transition: box-shadow ease-in-out 0.5s;
@@ -163,7 +165,6 @@
 .sortOptions {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     color: gainsboro;

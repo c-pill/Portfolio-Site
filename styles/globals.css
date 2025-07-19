@@ -1,48 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Galindo&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
-@supports (scrollbar-gutter: stable) {
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: "Red Hat Display", sans-serif;
-        font-display: swap;
-        transition: ease background-color 0.5s;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-gutter: stable;
-    }
-}
-
-@supports not (scrollbar-gutter: stable) {
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: "Red Hat Display", sans-serif;
-        font-display: swap;
-        transition: ease background-color 0.5s;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-right: 17px;
-    }
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Red Hat Display", sans-serif;
+    font-display: swap;
+    transition: ease background-color 0.5s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
 }
 
 #header {
     position: relative;
     display: flex;
-    justify-self: center;
     align-items: center;
-    align-self: center;
-    justify-content: center;
-    padding-top: 1.25em;
-    padding-bottom: 1.25em;
-    margin-top: 2dvh;
-    margin-bottom: 7dvh;
-    border-radius: 5em;
-    background-color: gainsboro;
+    padding: 1.25em;
+    margin: 2dvh auto 7dvh auto;
     width: fit-content;
     height: clamp(5px, 1vw, 20px);
+    background-color: gainsboro;
+    border-radius: 5em;
 }
 
 #header > * {

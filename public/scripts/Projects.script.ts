@@ -123,22 +123,3 @@ export function GitToList(gitData: ProjectData[], sort: string, searchQuery: str
        
     return projectList;
 };
-
-
-// export function ProjectTerminal() {
-//     useEffect(() => {
-//         const terminal = document.getElementById('terminal');
-//         const term = new Terminal();
-//         term.open(terminal);
-//         term.write('sup');
-//     });
-//     return (
-//         <>
-//             <head>
-//                 <link rel='style_sheets' href='node_modules/@xterm/xterm/css/xterm.css' />
-//                 <script src='node_modules/@xterm/xterm/lib/xterm.js'></script>
-//             </head>
-//             <div id='terminal'></div>
-//         </>
-//     );
-// };

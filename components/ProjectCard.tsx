@@ -28,23 +28,23 @@ export function ProjectCard({ props }: ProjectProps) {
                 <GitLogo />
             </h2>
             <h3>{props.description}</h3>
-            <div style={{ marginTop: 'auto', width: '100%' }}>
+            <div style={{ marginTop: 'auto' }}>
                 <h4>Size: {props.size_string}</h4>
                 <h4>Created: {props.created_at_string}</h4>
                 <h4>Last updated: {props.pushed_at_string}</h4>
-            </div>
-            <div className={styles.languageContainer}>
-                {
-                    props.languages.map((language) => languageDict.get(language))
-                }
-                {
-                    [...new Set(props.description.split(' '))].map((word) => {
-                        let dictResult = frameworkDict.get(word);
-                        if (dictResult) return dictResult;
-                        dictResult = toolsServicesDict.get(word);
-                        return dictResult;
-                    })
-                }
+                <div className={styles.languageContainer}>
+                    {
+                        props.languages.map((language) => languageDict.get(language))
+                    }
+                    {
+                        [...new Set(props.description.split(' '))].map((word) => {
+                            let dictResult = frameworkDict.get(word);
+                            if (dictResult) return dictResult;
+                            dictResult = toolsServicesDict.get(word);
+                            return dictResult;
+                        })
+                    }
+                </div>
             </div>
         </div>
     );

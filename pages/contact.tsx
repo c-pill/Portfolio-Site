@@ -27,7 +27,9 @@ export default function ContactMe() {
         content.style.background = 'none';
         content.style.flexWrap = 'wrap'
         content.style.flexDirection = 'column';
-        content.style.alignItems = 'center';
+        content.style.justifyContent = 'center';
+        content.style.marginLeft = 'auto';
+        content.style.marginRight = 'auto';
 
         if (!textGenerated) {
             AddGrowText("If you'd like to reach out, please do!", 'h1');

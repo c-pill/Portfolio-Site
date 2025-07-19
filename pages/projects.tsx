@@ -34,6 +34,8 @@ export default function ProjectList() {
 
         const gitError = document.getElementById('gitError');
         content.style.justifyContent = matches || gitError ? 'center' : 'left';
+        content.style.marginRight = 'auto';
+        content.style.marginLeft = 'auto';
     });
 
     useEffect(() => {

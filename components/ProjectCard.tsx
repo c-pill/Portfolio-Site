@@ -32,19 +32,19 @@ export function ProjectCard({ props }: ProjectProps) {
                 <h4>Size: {props.size_string}</h4>
                 <h4>Created: {props.created_at_string}</h4>
                 <h4>Last updated: {props.pushed_at_string}</h4>
-                <div className={styles.languageContainer}>
-                    {
-                        props.languages.map((language) => languageDict.get(language))
-                    }
-                    {
-                        [...new Set(props.description.split(' '))].map((word) => {
-                            let dictResult = frameworkDict.get(word);
-                            if (dictResult) return dictResult;
-                            dictResult = toolsServicesDict.get(word);
-                            return dictResult;
-                        })
-                    }
-                </div>
+            </div>
+            <div className={styles.languageContainer}>
+                {
+                    props.languages.map((language) => languageDict.get(language))
+                }
+                {
+                    [...new Set(props.description.split(' '))].map((word) => {
+                        let dictResult = frameworkDict.get(word);
+                        if (dictResult) return dictResult;
+                        dictResult = toolsServicesDict.get(word);
+                        return dictResult;
+                    })
+                }
             </div>
         </div>
     );

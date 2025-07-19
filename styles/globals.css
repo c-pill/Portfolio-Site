@@ -29,9 +29,11 @@
 }
 
 #header {
+    position: relative;
     display: flex;
     justify-self: center;
     align-items: center;
+    align-self: center;
     justify-content: center;
     padding-top: 1.25em;
     padding-bottom: 1.25em;
@@ -41,7 +43,6 @@
     background-color: gainsboro;
     width: fit-content;
     height: clamp(5px, 1vw, 20px);
-    position: relative;
 }
 
 #header > * {

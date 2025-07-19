@@ -26,12 +26,11 @@ body {
 
 #header > * {
     color: black;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding: 2em;
     text-decoration: none;
     user-select: none;
-    width: fit-content;
-    font-size: clamp(5px, 3vw, 15px);
+    height: fit-content;
+    font-size: clamp(10px, 1dvw, 15px);
 }
 
 #header > *:hover {

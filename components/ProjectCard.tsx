@@ -39,6 +39,7 @@ export function ProjectCard({ props }: ProjectProps) {
                 }
                 {
                     [...new Set(props.description.split(' '))].map((word) => {
+                        if (/\p{P}/u.test(word.slice(-1))) word = word.slice(0, -1);
                         let dictResult = frameworkDict.get(word);
                         if (dictResult) return dictResult;
                         dictResult = toolsServicesDict.get(word);

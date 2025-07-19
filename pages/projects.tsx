@@ -13,7 +13,7 @@ export default function ProjectList() {
     const [sortOpen, setSortOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
-    const matches = useMediaQuery('(max-width: 1180px)');
+    const matches = useMediaQuery('(max-width: 670px)');
     useHoriScroll(!matches);
 
     useEffect(() => {

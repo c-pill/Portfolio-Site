@@ -9,7 +9,6 @@ body {
     transition: ease background-color 0.5s;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-gutter: stable;
 }
 
 #header {

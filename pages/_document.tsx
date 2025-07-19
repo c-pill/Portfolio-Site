@@ -4,7 +4,6 @@ import React from "react";
 export default function Document() {
   return (
     <Html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Head/>
       <body>
         <Main />

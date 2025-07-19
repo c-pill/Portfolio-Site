@@ -1,10 +1,11 @@
 import Header from '@/components/Header';
-import { GitProjectCards } from '@/components/ProjectCard';
-import { GetGitRepoData, SortProjects } from '@/public/scripts/Projects.script';
+import { GetGitRepoData, GitToList, SortProjects } from '@/public/scripts/Projects.script';
 import React, { useEffect, useState } from 'react';
 import { Sort } from '@/types/sort.enum'; 
 import styles from '@/styles/Projects.module.css';
 import Head from 'next/head';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useHoriScroll } from '@/hooks/useHoriScroll';
 
 export default function ProjectList() {
     const [gitData, setGitData] = useState([]);
@@ -12,54 +13,43 @@ export default function ProjectList() {
     const [sortOpen, setSortOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
+    const matches = useMediaQuery('(max-width: 1180px)');
+    useHoriScroll(!matches);
+
     useEffect(() => {
         const body = document.body;
         const content = document.getElementById('content');
 
         body.style.background = 'rgb(50, 50, 50)';
+        body.style.overflow = 'hidden';
 
+        content.style.minHeight = '55dvh';
+        content.style.height = 'fit-content';
         content.style.background = 'none';
-        content.style.overflowX = 'auto';
-        content.style.overflowY = 'scroll';
         content.style.scrollbarWidth = 'none';
-        content.style.justifyContent = 'left';
         content.style.scrollBehavior = 'smooth';
 
-        content.addEventListener('wheel', (e) => {
-            if (e.deltaY !== 0) {
-                e.preventDefault();
-                content.scrollLeft += e.deltaY * 5;
-            }
-        }, { passive: false });
-    });
-    
-    useState(() => {
-        GetGitRepoData()
-            .then(gitData => {
-                SortProjects(gitData, sort);
-                setGitData(gitData);
-            });
+        content.style.overflowX = matches ? 'hidden' : 'scroll';
+        content.style.overflowY = matches ? 'scroll' : 'hidden';
+
+        const gitError = document.getElementById('gitError');
+        content.style.justifyContent = matches || gitError ? 'center' : 'left';
     });
 
+    useEffect(() => {
+        GetGitRepoData()
+            .then((gitData) => setGitData(gitData));
+    }, []);
+        
     function handleSearch(event: any) {
         setSearchQuery(event.target.value)
     }
-
+    
     function handleSortButton(method: Sort) {
         setSort(method);
         setSortOpen(false);
     }
-
-    function sortAndFilterList() {
-        SortProjects(gitData, sort);
-        const searchLowerCase = searchQuery.toLowerCase();
-        return GitProjectCards(gitData.filter((data: GitHubData) => {
-            const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
-            const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
-            return nameIncludes || descriptionIncludes;
-        }));
-    }
-
+        
     return (
         <>
             <Head>
@@ -95,7 +85,7 @@ export default function ProjectList() {
             <div id='content'>
                 <div id={styles.projectList}>
                 {
-                    sortAndFilterList()
+                    GitToList(gitData, sort, searchQuery)
                 }
                 </div>
             </div>

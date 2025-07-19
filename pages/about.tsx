@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import styles from '@/styles/About.module.css';
 import '@/components/LanguageCards';
-import { C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from '@/components/LanguageCards';
+import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from '@/components/LanguageCards';
 import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from '@/components/FrameworkCards';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Xcode } from '@/components/Tools_ServicesCards';
+import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from '@/components/Tools_ServicesCards';
 import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/WorkContainers';
-import { ChangeCardShadows } from '@/public/scripts/globals';
+import { AddAverageColorShadow } from '@/public/scripts/globals';
 import React from 'react';
 import { UGA_AI, UGA_CSCI } from '@/components/EducationContainers';
 import Head from 'next/head';
@@ -16,8 +16,17 @@ export function AboutEducation() {
         <>
             <h2 className={styles.rowTitle}>Education</h2>
             <UGA_AI />
+            <div className={styles.codingContainer} >
+                <Cpp />
+                <Python />
+                <Kaggle />
+                <Weka />
+                <VisualStudioCode />
+                <GitHub />
+                <MSOffice />
+            </div>
             <UGA_CSCI />
-            <div className='logoRow' >
+            <div className={styles.codingContainer} >
                 <C />
                 <Cpp />
                 <Java />
@@ -30,7 +39,7 @@ export function AboutEducation() {
                 <ReactJS />
                 <Postman />
                 <Python />
-                <Kaggle />
+                <Asm />
                 <MongooseODM />
                 <VisualStudioCode />
                 <MongoDB />
@@ -51,7 +60,7 @@ export function AboutWork() {
         <>
             <h2 className={styles.rowTitle}>Work Experience</h2>
             <EdibleBrands />
-            <div className='logoRow' >
+            <div className={styles.codingContainer} >
                 <Typescript />
                 <Javascript />
                 <DevOps />
@@ -65,7 +74,7 @@ export function AboutWork() {
                 <ESLint />
             </div>
             <ABB />
-            <div className='logoRow' >
+            <div className={styles.codingContainer} >
                 <Cs />
                 <DotNet />
                 <Python />
@@ -78,7 +87,7 @@ export function AboutWork() {
                 <SwaggerUI />
             </div>
             <TheCoderSchool />
-            <div className='logoRow' >
+            <div className={styles.codingContainer} >
                 <Cs />
                 <Python />
                 <Java />
@@ -100,6 +109,7 @@ export function AboutCoding() {
                 <Python />
                 <Java />
                 <Swift />
+                <Asm />
                 <Html />
                 <Css />
                 <Javascript />
@@ -127,6 +137,7 @@ export function AboutCoding() {
                 <Xcode />
                 <Vercel />
                 <Postman />
+                <Weka />
                 <VirtualBox />
                 <MSOffice />
                 <DevOps />
@@ -148,7 +159,7 @@ const resetScrollbar = () => {
 
 export default function About() {
     const [aboutInfo, setAboutInfo] = useState(<AboutEducation />);
-
+    const [shadowsSet, setShadowsSet] = useState(false);
 
     const seeEducation = () => {
         resetScrollbar();
@@ -173,7 +184,6 @@ export default function About() {
 
     useEffect(() => {
         const body = document.body;
-        const content = document.getElementById('content');
         const header = document.getElementById('header');
 
         body.style.background = 'rgb(22, 144, 196)';
@@ -182,17 +192,15 @@ export default function About() {
         header.style.position = 'sticky';
         header.style.top = '2dvh';
 
-        content.style.width = '90vw';
-        content.style.borderTopRightRadius = '0';
-        content.style.borderBottomRightRadius = '0';
-        content.style.zIndex = '-1';
-        content.style.display = 'grid';
-        content.style.gridTemplateAreas = 'sidebar aboutContainer';
-        content.style.gridTemplateColumns = '1fr 5fr';
-    
-        ChangeCardShadows();
+        if (!shadowsSet) {
+            const images: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoImg}`)) as HTMLElement[];
+            const imageCards: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoCard}`)) as HTMLElement[];
+            AddAverageColorShadow(images, imageCards);
+        }
+        else {
+            setShadowsSet(true);
+        }
     });
-
 
     return (
         <>
@@ -200,7 +208,7 @@ export default function About() {
                 <title>About Me</title>
             </Head>
             <Header />
-            <div id='content'>
+            <div id={styles.contentLayout}>
                 <div id={styles.sidebar}>
                     <h3 onClick={seeEducation}>Education</h3>
                     <h3 onClick={seeWork}>Work Experience</h3>

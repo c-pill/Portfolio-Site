@@ -5,13 +5,14 @@ import React from 'react';
 
 export default function ProfilePicture() {
     return (
-        <Image className='page-fade-in'
+        <Image
             id={styles.profilePicture} 
             src={profilePicture}
             alt='Connor Pillsworth'
-            width={100}
-            height={100}
-            priority={false}
+            width={250}
+            height={500}
+            style={{ height: 'auto' }}
+            placeholder='blur'
         />
     )
 }

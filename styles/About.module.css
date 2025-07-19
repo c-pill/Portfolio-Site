@@ -6,10 +6,11 @@
     justify-content: center;
     align-self: center;
     gap: 5em;
-    margin-bottom: 3em;
+    margin: 3em 2em;
     padding: 2dvh;
     width: 85%;
     height: fit-content;
+    z-index: 1;
 }
 
 #aboutContainer {
@@ -18,6 +19,7 @@
     overflow: auto;
     grid-area: 'aboutContainer';
     border-radius: 2.5em;
+    overflow-x: hidden;
 }
 
 #aboutContainer::-webkit-scrollbar {
@@ -33,23 +35,8 @@
     background-color: gainsboro;
 }
 
-#sidebar {
-    grid-area: 'sidebar';
-    display: flex;
-    flex-direction: column;
-    border-right: 10px solid rgb(22, 144, 196);
-}
-
-#sidebar > * {
-    position: relative;
-    width: fit-content;
-    top: 2dvh;
-    margin: 2dvh;
-    padding: 0;
-}
-
 #sidebar > *:hover {
-    color:  rgb(22, 144, 196);
+    color: rgb(22, 144, 196);
     cursor: pointer;
 }
 
@@ -59,78 +46,32 @@
     padding-bottom: 20px
 }
 
-@media (max-width: 1180px) {
-    .workContainerL {
-        display: flex;
-        flex-direction: column;
-        justify-self: center;
-        align-items: center;
-        padding: 0;
-    }
-
-    .workContainerR {
-        display: flex;
-        flex-direction: column;
-        justify-self: center;
-        align-items: center;
-        padding: 0;
-    }
-
-    .infoImg {
-        width: auto;
-        height: max(11dvw, 50px);
-        aspect-ratio: 1/1;
-        object-fit: contain;
-    }
-
-    .infoCard {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: fit-content;
-        height: max(13dvw, 70px);
-        aspect-ratio: 1/1;
-        border-radius: 25%;
-        transition: ease-in-out box-shadow 1s;
-    }
+.infoImg {
+    width: clamp(15%, 10dvw, 80%);
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }
 
-@media (min-width: 1181px) {
-    .workContainerL {
-        display: grid;
-        justify-self: center;
-        align-items: center;
-        grid-template-areas: 'image text';
-        grid-column: 3fr 5fr;
-        padding: 0;
-    }
+.infoCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25%;
+    width: clamp(30px, 15dvw, 100px);
+    height: auto;
+    aspect-ratio: 1/1;
+}
 
-    .workContainerR {
-        display: grid;
-        justify-self: center;
-        align-items: center;
-        grid-template-areas: 'text image';
-        grid-column: 5fr 3fr;
-        padding: 0;
-    }
-
-    .infoImg {
-        width: auto;
-        height: max(9dvh, 50px);
-        aspect-ratio: 1/1;
-        object-fit: contain;
-    }
-
-    .infoCard {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: fit-content;
-        height: max(11dvh, 70px);
-        aspect-ratio: 1/1;
-        border-radius: 25%;
-        transition: ease-in-out box-shadow 1s;
-    }
+.workContainer {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    height: fit-content;
+    padding-top: 3dvw;
 }
 
 .workImage {
@@ -142,25 +83,6 @@
     object-fit: contain;
     background-size: contain;
     padding: 0;
-}
-
-.workImageContainerL {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: auto;
-    height: max(30dvh, 135px);
-    object-fit: contain;
-
-}
-
-.workImageContainerR {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    width: auto;
-    height: max(30dvh, 135px);
-    object-fit: contain;
 }
 
 .workImageContainer {
@@ -182,8 +104,7 @@
 }
 
 .workText > * {
-    margin-top: 1dvh;
-    margin-bottom: 1dvh;
+    margin: 1dvh;
 }
 
 .workText > h5 {
@@ -192,4 +113,67 @@
 
 .bullet::before {
     content: '▪️';
+}
+
+@media (max-width: 1180px) {
+    #contentLayout {
+        display: flex;
+        flex-direction: column;
+        background-color: gainsboro;
+        border-radius: 2.5em;
+        height: 75vh;
+        width: 90vw;
+        border-top-right-radius: 0%;
+        border-bottom-right-radius: 0%;
+        z-index: '-1';
+    }
+
+    #sidebar {
+        grid-area: 'sidebar';
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-bottom: 10px solid rgb(22, 144, 196);
+    }
+
+    #sidebar > * {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        margin: 2dvh;
+        padding: 0;
+        font-size: clamp(10px, 2.5dvw, 20px);
+        user-select: none;
+    }
+}
+
+@media (min-width: 1181px) {
+    #contentLayout {
+        background-color: gainsboro;
+        border-radius: 2.5em;
+        height: 75vh;
+        width: 90vw;
+        border-top-right-radius: 0%;
+        border-bottom-right-radius: 0%;
+        z-index: '-1';
+        display: grid;
+        grid-template-areas: 'sidebar aboutContainer';
+        grid-template-columns: '1fr 5fr';
+    }
+
+    #sidebar {
+        grid-area: 'sidebar';
+        display: flex;
+        flex-direction: column;
+        border-right: 10px solid rgb(22, 144, 196);
+    }
+
+    #sidebar > * {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        top: 2dvh;
+        margin: 2dvh;
+        padding: 0;
+    }
 }

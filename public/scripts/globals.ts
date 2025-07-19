@@ -1,23 +1,47 @@
-import styles from '@/styles/About.module.css';
-import { FastAverageColor, FastAverageColorResource } from 'fast-average-color';
+import { FastAverageColor, FastAverageColorResource, FastAverageColorResult } from 'fast-average-color';
+import ColorThief from 'colorthief';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { ElementCenter } from '@/types/element-center.data';
 
-export function ChangeCardShadows() {
+export async function AddAverageColorShadow(images: HTMLElement[], recipients: HTMLElement[]) {
     const fac = new FastAverageColor();
-    const images: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoImg}`)) as HTMLElement[];
-    const imageCards: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoCard}`)) as HTMLElement[];
     images.forEach(async (image, index) => {
-        image.addEventListener('load', () => {
-            fac.getColorAsync(image as FastAverageColorResource)
-                .then(color => {
-                    imageCards[index].style.boxShadow = `0px 0px 10px 6px ${color.rgba}`;
-                });
-        });
+        await GetAverageColor(image)
+            .then((color: FastAverageColorResult) => {
+                recipients[index].style.boxShadow = `0px 0px 10px 6px ${color.rgba}`;
+            });
     });
 };
 
-export function AddGrowText(string, element) {
+export async function GetAverageColor(image: HTMLElement): Promise<FastAverageColorResult> {
+    const fac = new FastAverageColor();
+    return await fac.getColorAsync(image as FastAverageColorResource);
+};
+
+export async function GetDominantColor(image: HTMLElement) {
+    return new Promise((resolve, reject) => {
+        image.onload = () => {
+            try {
+                const colorThief = new ColorThief();
+                const dominantColor = colorThief.getColor(image);
+                resolve(dominantColor);
+            } catch (error) {
+                reject(error);
+            }
+        };
+        image.onerror = reject;
+    });
+};
+
+export function GetElementCenter(element: HTMLElement): ElementCenter {
+    const rect: DOMRect = element.getBoundingClientRect();
+    const x: number = rect.left + rect.width / 2;
+    const y: number = rect.top + rect.height / 2;
+    return { x, y };
+};
+
+export function AddGrowText(string: string, element: any) {
     const content = document.getElementById('content');
     const growContainer = document.createElement('div');
     growContainer.setAttribute('class', 'growContainer');
@@ -64,7 +88,7 @@ export async function AnimateRouteChange(page) {
             header.style.position = 'sticky';
             header.style.top = '2dvh';
 
-            ChangeCardShadows();
+            // ChangeCardShadows();
 
             content.style.width = '90vw';
             // content.style.height = 'fit-content';

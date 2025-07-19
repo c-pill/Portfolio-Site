@@ -26,6 +26,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'd1nmxxg9d5tdo.cloudfront.net',
         pathname: '/8514/logos/large/Chimney_Lakes.png'
+      },
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+        pathname: '/github/explore/e495457f5ff28c343f9e422f8e3cf80fd3e80890/topics/assembly/assembly.png'
       }
     ]
   },

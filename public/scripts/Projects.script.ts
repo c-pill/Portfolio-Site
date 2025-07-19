@@ -1,5 +1,10 @@
-import { Sort } from "@/types/sort.enum";
 import axios from "axios";
+import { GitHubResponse } from "@/types/github-response.type";
+import { ProjectData } from "@/types/project-data.type";
+import { Sort } from "@/types/sort.enum";
+import { GetDominantColor } from "./globals";
+import { GitApiErrorCard, ProjectCards } from "@/components/ProjectCard";
+import { JSX } from "react";
 
 export async function GetGitRepoData() {
     const convertTimeToString = (dateString: string) => {
@@ -29,46 +34,73 @@ export async function GetGitRepoData() {
         return `${size_kb} GB`;
     };
 
-    return axios.get('https://api.github.com/users/c-pill/repos')
-        .then((response) => {
-            const gitResponse: GitHubResponse = response.data;
-            const gitData: GitHubData[] = gitResponse.map(({
-                name,
-                html_url,
-                description,
-                created_at,
-                pushed_at,
-                languages_url,
-                size
-            }) => ({
-                name,
-                html_url,
-                description,
-                created_at_string: convertTimeToString(created_at),
-                pushed_at_string: convertTimeToString(pushed_at),
-                created_at_number: convertTimeToNumber(created_at),
-                pushed_at_number: convertTimeToNumber(pushed_at),
-                languages_url,
-                size_kb: size,
-                size_string: formatSize(size)
-            }));
-            return gitData;
+    const gitLogo = new Image();
+    gitLogo.crossOrigin = 'anonymous';
+    gitLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/250px-GitHub_Invertocat_Logo.svg.png';
+    gitLogo.width = 100;
+    gitLogo.height = 100;
+
+    const gitColor: number[] = await GetDominantColor(gitLogo) as number[];
+
+    const gitResponse: GitHubResponse = await axios.get('https://api.github.com/users/c-pill/repos')
+        .then((response) => response.data)
+        .catch((error) => {
+            console.error(error);
+            return null;
         });
+
+    if (!gitResponse) return null;
+
+    const gitRepoData: ProjectData[] = gitResponse.map(({
+        name,
+        html_url,
+        description,
+        created_at,
+        pushed_at,
+        size,
+        languages_url
+    }) => ({
+        name,
+        url: html_url,
+        description,
+        created_at_string: convertTimeToString(created_at),
+        pushed_at_string: convertTimeToString(pushed_at),
+        created_at_number: convertTimeToNumber(created_at),
+        pushed_at_number: convertTimeToNumber(pushed_at),
+        size_kb: size,
+        size_string: formatSize(size),
+        languages: [languages_url],
+        border_color: `rgb(${gitColor.join(', ')}`
+
+    })) as unknown as ProjectData[];
+
+    for (let i = 0; i < gitRepoData.length; i++) {
+        const languages = await axios.get(gitRepoData[i].languages[0])
+            .then((response) => Object.keys(response.data))
+            .catch((error) => {
+                console.error(error);
+                return [];
+            });
+        gitRepoData[i].languages = languages;
+    }
+
+    return gitRepoData;
+
 };
 
-export function SortProjects(gitData: GitHubData[], sort: string) {
+export function SortProjects(projectData: ProjectData[], sort: string) {
     switch (sort) {
         case Sort.Newest: 
-            gitData.sort((a, b) => b.pushed_at_number - a.pushed_at_number);
+            projectData.sort((a, b) => b.pushed_at_number - a.pushed_at_number);
             break;
         case Sort.Oldest:
-            gitData.sort((a, b) => a.pushed_at_number - b.pushed_at_number);
+            projectData.sort((a, b) => a.pushed_at_number - b.pushed_at_number);
             break;
         case Sort.Smallest:
-            gitData.sort((a, b) => a.size_kb - b.size_kb);
+            projectData.sort((a, b) => a.size_kb - b.size_kb);
             break;
         case Sort.Largest:
-            gitData.sort((a, b) => b.size_kb - a.size_kb);
+            projectData.sort((a, b) => b.size_kb - a.size_kb);
             break;
         case Sort.Terminal:
             break;
@@ -76,6 +108,22 @@ export function SortProjects(gitData: GitHubData[], sort: string) {
             break;
     };
 };
+
+export function GitToList(gitData: ProjectData[], sort: string, searchQuery: string) {
+    if (gitData == null) return GitApiErrorCard();
+    
+    SortProjects(gitData, sort);
+    const searchLowerCase = searchQuery.toLowerCase();
+
+    const projectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
+        const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
+        const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
+        return nameIncludes || descriptionIncludes;
+    }));
+       
+    return projectList;
+};
+
 
 // export function ProjectTerminal() {
 //     useEffect(() => {

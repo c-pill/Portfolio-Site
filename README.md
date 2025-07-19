@@ -1,6 +1,8 @@
 # Portfolio Site v1.1.0
 
-Hello and welcome to my GitHub! This portfolio site is a substitute/addition to my resume.
+Hello and welcome to my GitHub! This portfolio site is a substitute/addition to my resume. It can be reached via the link below:
+
+https://connorpillsworth-portfolio.vercel.app/
 
 ## v1.1.0
 - Every page much more responsive

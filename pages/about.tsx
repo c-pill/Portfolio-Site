@@ -9,7 +9,6 @@ import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/Wo
 import React from 'react';
 import { UGA_AI, UGA_CSCI } from '@/components/EducationContainers';
 import Head from 'next/head';
-import { useAvgColorShadow } from '@/hooks/useAvgColorShadow';
 
 export function AboutEducation() {
     return (
@@ -159,7 +158,6 @@ const resetScrollbar = () => {
 
 export default function About() {
     const [aboutInfo, setAboutInfo] = useState(<AboutEducation />);
-    const [shadowsSet, setShadowsSet] = useState(false);
 
     const seeEducation = () => {
         resetScrollbar();
@@ -192,8 +190,6 @@ export default function About() {
         header.style.position = 'sticky';
         header.style.top = '2dvh';
     });
-
-    useAvgColorShadow(styles.infoImg, styles.infoCard);
 
     return (
         <>

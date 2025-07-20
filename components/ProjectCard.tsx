@@ -6,9 +6,9 @@ import * as LanguageCards from '@/components/LanguageCards';
 import * as FrameworkCards from '@/components/FrameworkCards';
 import * as Tools_ServicesCards from '@/components/Tools_ServicesCards';
 
-const languageCards = Object.keys(LanguageCards).map((card) => LanguageCards[card]());
-const frameworkCards = Object.keys(FrameworkCards).map((card) => FrameworkCards[card]());
-const toolsServicesCards = Object.keys(Tools_ServicesCards).map((card) => Tools_ServicesCards[card]());
+const languageCards = Object.keys(LanguageCards).map((card) => LanguageCards[card]({shadowOn: false}));
+const frameworkCards = Object.keys(FrameworkCards).map((card) => FrameworkCards[card]({shadowOn: false}));
+const toolsServicesCards = Object.keys(Tools_ServicesCards).map((card) => Tools_ServicesCards[card]({shadowOn: false}));
 
 const languageDict = new Map();
 const frameworkDict = new Map();

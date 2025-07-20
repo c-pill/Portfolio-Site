@@ -76,9 +76,6 @@ export default function ProjectList() {
                             <button className={styles.sortOption} onClick={() => handleSortButton(Sort.Smallest)}>
                                 {Sort.Smallest}
                             </button>
-                            {/* <button className={styles.sortOption} onClick={() => handleSortButton(Sort.Terminal)}>
-                                {Sort.Terminal}
-                            </button> */}
                         </div>
                         :
                         <button className={styles.sortButton} type='button' onClick={() => setSortOpen(!sortOpen)}>{sort}</button>

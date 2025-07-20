@@ -1,11 +1,36 @@
 import styles from '@/styles/Contact.module.css';
 import { ContactData, ContactProps } from '@/types/contact-data.type';
+import { FastAverageColor, FastAverageColorResource } from 'fast-average-color';
 import Image from 'next/image';
+import { useState } from 'react';
 
 function ContactBall({ props }: ContactProps) {
+    const [shadowStyle, setShadowStyle] = useState('');
+
+    const handleColorExtract = (img) => {
+        const fac = new FastAverageColor();
+        fac.getColorAsync(img as FastAverageColorResource)
+            .then((color) => setShadowStyle(`0px 0px 10px 6px ${color.hex}`))
+    };
+    
     return (
-        <a href={props.href} className={styles.contactBall} title={props.title}>
-            <Image crossOrigin='anonymous' priority={true} className={styles.ballImg} alt={props.alt} src={props.src} width={100} height={100} />
+        <a
+            className={styles.contactBall}
+            href={props.href}
+            target='_blank'
+            title={props.title}
+            style={{boxShadow: shadowStyle}}
+        >
+            <Image
+                className={styles.ballImg}
+                src={props.src}
+                alt={props.alt} 
+                crossOrigin='anonymous'
+                priority
+                onLoadingComplete={(img) => handleColorExtract(img)}
+                width={100} 
+                height={100} 
+            />
         </a>
     );
 }

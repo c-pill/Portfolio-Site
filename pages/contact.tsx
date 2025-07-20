@@ -5,8 +5,6 @@ import ContactBalls from '@/components/ContactBalls';
 import { AddGrowText } from '@/public/scripts/globals';
 import React from 'react';
 import Head from 'next/head';
-import styles from '@/styles/Contact.module.css';
-import { useAvgColorShadow } from '@/hooks/useAvgColorShadow';
 
 export default function ContactMe() {
     const [textGenerated, setTextGenerated] = useState(false);
@@ -36,8 +34,6 @@ export default function ContactMe() {
             setTextGenerated(true);
         }
     }, []);
-
-    useAvgColorShadow(styles.ballImg, styles.contactBall);
 
     AnimateContactBalls();
     

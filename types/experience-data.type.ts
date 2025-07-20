@@ -3,6 +3,7 @@ export type ExperienceData = {
     title: string;
     alt: string;
     src: string;
+    shadowOn: boolean
 };
 
 export type ExperienceProps = {

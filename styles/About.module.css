@@ -61,6 +61,7 @@
     width: clamp(30px, 15dvw, 100px);
     height: auto;
     aspect-ratio: 1/1;
+    border: 0px 0px 10px 6px grey;
 }
 
 .workContainer {

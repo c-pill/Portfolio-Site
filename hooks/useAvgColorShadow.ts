@@ -11,7 +11,7 @@ export async function useAvgColorShadow(sourceClassName: string, recipientClassN
                 .then((color: FastAverageColorResult) => {
                     recipients[index].style.boxShadow = `0px 0px 10px 6px ${color.rgba}`;
                 })
-                .catch(() => recipients[index].style.boxShadow = `0px 0px 10px 6px grey`);
+                .catch(() => recipients[index].style.boxShadow = '0px 0px 10px 6px grey');
         });
     });
 };

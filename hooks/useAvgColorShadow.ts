@@ -6,11 +6,12 @@ export async function useAvgColorShadow(sourceClassName: string, recipientClassN
         const sources = Array.from(document.body.getElementsByClassName(sourceClassName)) as HTMLElement[];
         const recipients = Array.from(document.body.getElementsByClassName(recipientClassName)) as HTMLElement[];
         const fac = new FastAverageColor();
-        sources.forEach(async (image, index) => {
-            await fac.getColorAsync(image as FastAverageColorResource)
+        sources.forEach(async (source, index) => {
+            await fac.getColorAsync(source as FastAverageColorResource)
                 .then((color: FastAverageColorResult) => {
                     recipients[index].style.boxShadow = `0px 0px 10px 6px ${color.rgba}`;
-                });
+                })
+                .catch(() => recipients[index].style.boxShadow = `0px 0px 10px 6px grey`);
         });
     });
 };

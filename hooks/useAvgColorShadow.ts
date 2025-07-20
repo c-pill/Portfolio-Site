@@ -12,5 +12,5 @@ export async function useAvgColorShadow(sourceClassName: string, recipientClassN
                     recipients[index].style.boxShadow = `0px 0px 10px 6px ${color.rgba}`;
                 });
         });
-    }), [];
+    }, []);
 };

@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import { AnimateContactBalls } from '@/public/scripts/Contact.script'; 
 import ContactBalls from '@/components/ContactBalls';
-import { AddAverageColorShadow, AddGrowText } from '@/public/scripts/globals';
+import { AddGrowText } from '@/public/scripts/globals';
 import React from 'react';
 import Head from 'next/head';
 import styles from '@/styles/Contact.module.css';
+import { useAvgColorShadow } from '@/hooks/useAvgColorShadow';
 
 export default function ContactMe() {
     const [textGenerated, setTextGenerated] = useState(false);
@@ -14,8 +15,6 @@ export default function ContactMe() {
         const body = document.body;
         const header = document.getElementById('header');
         const content = document.getElementById('content');
-        const contactBalls: HTMLElement[] = Array.from(document.body.getElementsByClassName(styles.contactBall)) as HTMLElement[];
-        const contactImages: HTMLElement[] = Array.from(document.body.getElementsByClassName(styles.ballImg)) as HTMLElement[];
 
         header.style.zIndex = '2';
 
@@ -36,9 +35,9 @@ export default function ContactMe() {
             AddGrowText('Click the screen to start/stop icons', 'h3');
             setTextGenerated(true);
         }
-
-        AddAverageColorShadow(contactImages, contactBalls);
     }, []);
+
+    useAvgColorShadow(styles.ballImg, styles.contactBall);
 
     AnimateContactBalls();
     

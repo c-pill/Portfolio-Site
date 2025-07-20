@@ -6,10 +6,10 @@ import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Types
 import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from '@/components/FrameworkCards';
 import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from '@/components/Tools_ServicesCards';
 import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/WorkContainers';
-import { AddAverageColorShadow } from '@/public/scripts/globals';
 import React from 'react';
 import { UGA_AI, UGA_CSCI } from '@/components/EducationContainers';
 import Head from 'next/head';
+import { useAvgColorShadow } from '@/hooks/useAvgColorShadow';
 
 export function AboutEducation() {
     return (
@@ -191,16 +191,9 @@ export default function About() {
 
         header.style.position = 'sticky';
         header.style.top = '2dvh';
-
-        if (!shadowsSet) {
-            const images: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoImg}`)) as HTMLElement[];
-            const imageCards: HTMLElement[] = Array.from(document.getElementsByClassName(`${styles.infoCard}`)) as HTMLElement[];
-            AddAverageColorShadow(images, imageCards);
-        }
-        else {
-            setShadowsSet(true);
-        }
     });
+
+    useAvgColorShadow(styles.infoImg, styles.infoCard);
 
     return (
         <>

@@ -140,6 +140,7 @@
         position: relative;
         width: fit-content;
         height: fit-content;
+        user-select: none;
         margin: 2dvh;
         padding: 0;
         font-size: clamp(10px, 2.5dvw, 20px);
@@ -172,6 +173,7 @@
         position: relative;
         width: fit-content;
         height: fit-content;
+        user-select: none;
         top: 2dvh;
         margin: 2dvh;
         padding: 0;

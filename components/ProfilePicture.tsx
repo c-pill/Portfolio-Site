@@ -13,6 +13,7 @@ export default function ProfilePicture() {
             height={500}
             style={{ height: 'auto' }}
             placeholder='blur'
+            priority
         />
     )
 }

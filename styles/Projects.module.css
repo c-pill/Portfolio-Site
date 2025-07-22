@@ -1,4 +1,4 @@
-@media (max-width: 670px) {
+@media (max-width: 900px) or (max-height: 850px) {
     #projectList {
         display: flex;
         flex-direction: column;
@@ -27,7 +27,7 @@
     }
 }
 
-@media (min-width: 671px) {
+@media (min-width: 901px) and (min-height: 851px) {
     #projectList {
         display: flex;
         flex-direction: row;

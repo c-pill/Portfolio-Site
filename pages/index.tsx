@@ -8,7 +8,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 export default function Home() {
   const [animated, setAnimated] = useState(false);
 
-  const matches = useMediaQuery('(max-width: 1180px)');
+  const tooSmall = useMediaQuery('(max-height: 373px), (max-width: 393)');
 
   useEffect(() => {    
     const body = document.body;
@@ -19,8 +19,8 @@ export default function Home() {
     const excuse = document.getElementById(styles.excuse);
 
     body.style.background = 'rgb(214, 168, 137)';
-    body.style.overflowY = 'hidden';
     body.style.display = 'flex';
+    body.style.overflowY = tooSmall ? 'scroll' : 'hidden';
     
     content.style.display = 'block';
     content.style.background = 'none';

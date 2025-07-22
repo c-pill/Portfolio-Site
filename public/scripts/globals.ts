@@ -46,3 +46,8 @@ export function AddGrowText(string: string, element: any) {
     
     content.appendChild(growContainer);
 };
+
+export function RemoveGrowText() {
+    const growContainers = Array.from(document.body.getElementsByClassName('growContainer'));
+    growContainers.forEach((container) => container.remove()); 
+};

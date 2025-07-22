@@ -79,6 +79,7 @@ body {
 .growLetter {
     position: relative;
     font-family: "Galindo", sans-serif;
+    font-size: clamp(5px, 5dvh, 125px);
     transform-origin: center center;
     transition: transform 0.35s ease-in-out;
     color: gainsboro;
@@ -103,10 +104,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto;
+    margin: 0 auto 0 auto;
+    padding: 0;
     width: fit-content;
     height: fit-content;
-    gap: 2dvh;
+    gap: 2%;
 }
 
 .growContainer > * {

@@ -13,7 +13,9 @@ export default function ProjectList() {
     const [sortOpen, setSortOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
-    const matches = useMediaQuery('(max-width: 670px)');
+    const matches = useMediaQuery('(max-width: 900px) or (max-height: 850px)');
+    const tooShort = useMediaQuery('(max-height: 500px)');
+
     useHoriScroll(!matches);
 
     useEffect(() => {
@@ -21,7 +23,9 @@ export default function ProjectList() {
         const content = document.getElementById('content');
 
         body.style.background = 'rgb(50, 50, 50)';
-        body.style.overflow = 'hidden';
+        body.style.overflowX = 'hidden';
+
+        body.style.overflowY = tooShort ? 'scroll' : 'hidden';
 
         content.style.minHeight = '55dvh';
         content.style.height = 'fit-content';
@@ -30,7 +34,7 @@ export default function ProjectList() {
         content.style.scrollBehavior = 'smooth';
 
         content.style.overflowX = matches ? 'hidden' : 'scroll';
-        content.style.overflowY = matches ? 'scroll' : 'hidden';
+        content.style.overflowY = matches || tooShort ? 'scroll' : 'hidden';
 
         const gitError = document.getElementById('gitError');
         content.style.justifyContent = matches || gitError ? 'center' : 'left';

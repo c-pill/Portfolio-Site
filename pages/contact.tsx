@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import { AnimateContactBalls } from '@/public/scripts/Contact.script'; 
 import ContactBalls from '@/components/ContactBalls';
-import { AddGrowText } from '@/public/scripts/globals';
+import { AddGrowText, RemoveGrowText } from '@/public/scripts/globals';
 import React from 'react';
 import Head from 'next/head';
 
@@ -18,24 +18,36 @@ export default function ContactMe() {
 
         body.style.overflowY = 'hidden';
         body.style.background = 'rgb(69, 157, 78)';
-        body.style.justifyContent = 'center';
         
         content.style.transition = 'ease-out width 0.5s';
         content.style.background = 'none';
         content.style.flexWrap = 'wrap'
         content.style.flexDirection = 'column';
-        content.style.justifyContent = 'center';
         content.style.marginLeft = 'auto';
         content.style.marginRight = 'auto';
+        content.style.height = '100%';
 
-        if (!textGenerated) {
-            AddGrowText("If you'd like to reach out, please do!", 'h1');
-            AddGrowText('Click the screen to start/stop icons', 'h3');
-            setTextGenerated(true);
+        const handleAddGrowText = () => {
+            if (!textGenerated) {
+                AddGrowText("If you'd like to reach out, please do!", 'h1');
+                AddGrowText('Click the screen to start/stop icons', 'h3');
+                setTextGenerated(true);
+            }
+        };
+
+        const handleRemoveGrowText = () => {
+            RemoveGrowText();
+            setTextGenerated(false);
         }
-    }, []);
 
-    AnimateContactBalls();
+        handleAddGrowText();
+        AnimateContactBalls();
+
+        document.addEventListener('resize', handleRemoveGrowText);
+
+        return () => document.removeEventListener('resize', handleRemoveGrowText);
+    }, [textGenerated]);
+
     
     return (
         <>

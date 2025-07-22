@@ -66,7 +66,6 @@ function ToggleAnimation(animationData: AnimationData[], move: boolean) {
 };
 
 export function AnimateContactBalls() {
-    useEffect(() => {
         const bodyDimensions = document.body.getBoundingClientRect();
         
         document.body.addEventListener('click', () => {
@@ -118,5 +117,4 @@ export function AnimateContactBalls() {
         };
 
         requestAnimationFrame(animate);
-    }, []);
 };

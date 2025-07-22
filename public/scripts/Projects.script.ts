@@ -91,10 +91,10 @@ export async function GetGitRepoData() {
 export function SortProjects(projectData: ProjectData[], sort: string) {
     switch (sort) {
         case Sort.Newest: 
-            projectData.sort((a, b) => b.pushed_at_number - a.pushed_at_number);
+            projectData.sort((a, b) => b.created_at_number - a.created_at_number);
             break;
         case Sort.Oldest:
-            projectData.sort((a, b) => a.pushed_at_number - b.pushed_at_number);
+            projectData.sort((a, b) => a.created_at_number - b.created_at_number);
             break;
         case Sort.Smallest:
             projectData.sort((a, b) => a.size_kb - b.size_kb);

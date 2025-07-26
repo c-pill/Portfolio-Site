@@ -25,6 +25,7 @@ export default function ContactMe() {
         content.style.flexDirection = 'column';
         content.style.marginLeft = 'auto';
         content.style.marginRight = 'auto';
+        content.style.width = '100dvw';
         content.style.height = '100%';
 
         const handleAddGrowText = () => {

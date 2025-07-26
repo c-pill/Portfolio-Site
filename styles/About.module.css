@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 25%;
-    width: clamp(30px, 15dvw, 100px);
+    width: clamp(25px, 20%, 100px);
     height: auto;
     aspect-ratio: 1/1;
     border: 0px 0px 10px 6px grey;

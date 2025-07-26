@@ -24,8 +24,7 @@ export default function ProjectList() {
 
         body.style.background = 'rgb(50, 50, 50)';
         body.style.overflowX = 'hidden';
-
-        body.style.overflowY = tooShort ? 'scroll' : 'hidden';
+        body.style.overflowY = 'scroll';
 
         content.style.minHeight = '55dvh';
         content.style.height = 'fit-content';

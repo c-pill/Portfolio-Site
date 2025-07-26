@@ -49,16 +49,16 @@ export function ABB() {
                     January 2025 - May 2025
                 </h5>
                 <li>
-                    Design and implement highly resuable solutions
+                    Developed a graphing API using .NET framework to replace Excel and decrease execution time
                 </li>
                 <li>
-                    Store plant specific data in a SQL database
+                    Established a SQL database to store manufacturing plant data
                 </li>
                 <li>
-                    Create Microsoft Sharepoint sites to streamline the distribution and installation of software
+                    Created sites using SharePoint to streamline the distribution and installation of professional software 
                 </li>
                 <li>
-                    Test and implement Generative AI for professional use
+                    Tested and evaluated Generative AI for client use
                 </li>
             </ul>
             <a href='https://new.abb.com/us' className={styles.workImageContainer} target='_blank' title='ABB'>

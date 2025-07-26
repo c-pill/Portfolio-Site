@@ -185,7 +185,7 @@ export default function About() {
         const header = document.getElementById('header');
 
         body.style.background = 'rgb(22, 144, 196)';
-        body.style.overflowY = 'hidden';
+        body.style.overflowY = 'scroll';
 
         header.style.position = 'sticky';
         header.style.top = '2dvh';

@@ -189,3 +189,15 @@ export function Weka({ shadowOn = true }) {
     };
     return <ExperienceCard key='Weka' props={data} />;
 };
+
+
+export function OpenAI({ shadowOn = true }) {
+    const data: ExperienceData = {
+        href: 'https://openai.com/chatgpt/overview/',
+        title: 'OpenAI',
+        alt: 'OpenAI',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/OpenAI_logo_2025_%28symbol%29.svg/640px-OpenAI_logo_2025_%28symbol%29.svg.png',
+        shadowOn
+    };
+    return <ExperienceCard key='OpenAI' props={data} />;
+};

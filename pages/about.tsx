@@ -4,7 +4,7 @@ import styles from '@/styles/About.module.css';
 import '@/components/LanguageCards';
 import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from '@/components/LanguageCards';
 import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from '@/components/FrameworkCards';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from '@/components/Tools_ServicesCards';
+import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, OpenAI, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from '@/components/Tools_ServicesCards';
 import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/WorkContainers';
 import React from 'react';
 import { UGA_AI, UGA_CSCI } from '@/components/EducationContainers';
@@ -63,6 +63,7 @@ export function AboutWork() {
                 <Typescript />
                 <Javascript />
                 <DevOps />
+                <OpenAI />
                 <Contentful />
                 <NodeJS />
                 <NestJS />

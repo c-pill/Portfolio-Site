@@ -16,19 +16,19 @@ export function EdibleBrands() {
                     Software Engineering Intern
                 </h4>
                 <h5>
-                    May 2025 - Present
+                    May 2025 - July 2025
                 </h5>
                 <li>
-                    Support senior engineers in developing and testing web and mobile applications
+                    Configured Contentful CMS for seamless content delivery on Edible’s site
                 </li>
                 <li>
-                    Assist with coding simple interactive components and features to improve user experience
+                    Conducted research on GPT agents and presented findings to C-Suite and management 
                 </li>
                 <li>
-                    Help troubleshoot and debug minor technical issues
+                    Built a franchisee-faced GPT agent to streamline operations and support 
                 </li>
                 <li>
-                    Document work and contribute to engineering documentation for future reference
+                    Assisted front-end development of a new launchpad service
                 </li>
             </ul>
         </div>

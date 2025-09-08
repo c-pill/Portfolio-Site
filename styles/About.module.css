@@ -1,3 +1,15 @@
+.section {
+   display: flex;
+   min-width: 100%;
+   min-height: 100dvh;
+   align-content: center;
+   place-items: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 3dvh 0dvh;
+   text-align: center;
+}
+
 .codingContainer {
     display: flex;
     flex-direction: row;

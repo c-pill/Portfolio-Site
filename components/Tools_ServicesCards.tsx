@@ -85,7 +85,7 @@ export function MSOffice({ shadowOn = true }) {
         href: 'https://www.microsoft.com/en-us/microsoft-365',
         title: 'Microsoft Office',
         alt: 'Microsoft Office',
-        src: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Microsoft_365_Copilot.svg/250px-Microsoft_365_Copilot.svg.png',
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Microsoft_Office_2013-2019_logo_and_wordmark.svg/640px-Microsoft_Office_2013-2019_logo_and_wordmark.svg.png',
         shadowOn
     };
     return <ExperienceCard key='Microsoft Office' props={data} />;

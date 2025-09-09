@@ -11,13 +11,13 @@ export function ExperienceCard({ props }: ExperienceProps) {
         if (props.shadowOn) {
             const fac = new FastAverageColor();
             fac.getColorAsync(img as FastAverageColorResource)
-                .then((color) => setShadowStyle(`0px 0px 10px 6px ${color.hex}`))
+               .then((color) => setShadowStyle(`0px 0px 7px 2px ${color.hex}`));
         }
     };
 
     return (
         <a 
-            className={styles.infoCard}
+            className={styles.skillCard}
             href={props.href}
             target='_blank'
             title={props.title}

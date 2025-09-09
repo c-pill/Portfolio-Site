@@ -46,7 +46,7 @@ export default function ProjectList() {
             .then((gitData) => setGitData(gitData));
     }, []);
         
-    function handleSearch(event: any) {
+    function handleSearch(event: { target: { value: React.SetStateAction<string>; }; }) {
         setSearchQuery(event.target.value)
     }
     

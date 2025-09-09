@@ -1,218 +1,50 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Header from '@/components/Header';
-import styles from '@/styles/About.module.css';
 import '@/components/LanguageCards';
-import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from '@/components/LanguageCards';
-import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from '@/components/FrameworkCards';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, OpenAI, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from '@/components/Tools_ServicesCards';
-import { ABB, ChimneyLakes, EdibleBrands, TheCoderSchool } from '@/components/WorkContainers';
 import React from 'react';
-import { UGA_AI, UGA_CSCI } from '@/components/EducationContainers';
 import Head from 'next/head';
+import { AboutEducation, AboutSkills, AboutWork } from '@/components/AboutSections';
+import { ExperienceObserver } from '@/public/scripts/About.script';
 
-export function AboutEducation() {
-    return (
-        <>
-            <h2 className={styles.rowTitle}>Education</h2>
-            <UGA_AI />
-            <div className={styles.codingContainer} >
-                <Cpp />
-                <Python />
-                <Kaggle />
-                <Weka />
-                <VisualStudioCode />
-                <GitHub />
-                <MSOffice />
-            </div>
-            <UGA_CSCI />
-            <div className={styles.codingContainer} >
-                <C />
-                <Cpp />
-                <Java />
-                <SpringBoot />
-                <Html />
-                <Css />
-                <Javascript />
-                <Figma />
-                <NodeJS />
-                <ReactJS />
-                <Postman />
-                <Python />
-                <Asm />
-                <MongooseODM />
-                <VisualStudioCode />
-                <MongoDB />
-                <MySql />
-                <Sql />
-                <GitHub />
-                <MSOffice />
-                <VirtualBox />
-                <Matlab />
-            </div>
-        </>
-        
-    );
-};
+export default function AboutMe() {
+   useEffect(() => {
+      const body = document.body;
+      // body.style.background = 'rgb(22, 144, 196)';
+      body.style.background = 'rgba(195, 195, 197, 1)';
+      body.style.overflowY = 'scroll';
 
-export function AboutWork() {
-    return (
-        <>
-            <h2 className={styles.rowTitle}>Work Experience</h2>
-            <EdibleBrands />
-            <div className={styles.codingContainer} >
-                <Typescript />
-                <Javascript />
-                <DevOps />
-                <OpenAI />
-                <Contentful />
-                <NodeJS />
-                <NestJS />
-                <ReactJS />
-                <Postman />
-                <VisualStudioCode />
-                <SwaggerUI />
-                <ESLint />
-            </div>
-            <ABB />
-            <div className={styles.codingContainer} >
-                <Cs />
-                <DotNet />
-                <Python />
-                <MSOffice />
-                <Sql />
-                <MicrosoftSqlServer />
-                <DevOps />
-                <VisualStudio />
-                <VisualStudioCode />
-                <SwaggerUI />
-            </div>
-            <TheCoderSchool />
-            <div className={styles.codingContainer} >
-                <Cs />
-                <Python />
-                <Java />
-            </div>
-            <ChimneyLakes />
-        </>
-    );
-};
+      // const script = document.createElement('script');
+      // script.src = 'scripts/About.script.ts';
+      // body.appendChild(script);
 
-export function AboutCoding() {
-    return (
-        <>
-            <h2 className={styles.rowTitle}>Coding Experience</h2>
-            <h3 className={styles.bullet}>Languages:</h3>
-            <div className={styles.codingContainer}>
-                <C />
-                <Cpp />
-                <Cs />
-                <Python />
-                <Java />
-                <Swift />
-                <Asm />
-                <Html />
-                <Css />
-                <Javascript />
-                <Typescript />
-                <Sql />
-            </div>
-            <h3 className={styles.bullet}>Frameworks:</h3>
-            <div className={styles.codingContainer}>
-                <NodeJS />
-                <ReactJS />
-                <NestJS />
-                <NextJS />
-                <MongoDB />
-                <MongooseODM />
-                <SpringBoot />
-                <Contentful />
-                <DotNet />
-            </div>
-            <h3 className={styles.bullet}>Tools/Services:</h3>
-            <div className={styles.codingContainer}>
-                <VisualStudioCode />
-                <VisualStudio />
-                <GitHub />
-                <Matlab />
-                <Xcode />
-                <Vercel />
-                <Postman />
-                <Weka />
-                <VirtualBox />
-                <MSOffice />
-                <DevOps />
-                <MySql />
-                <MicrosoftSqlServer />
-                <SwaggerUI />
-                <Kaggle />
-                <ESLint />
-                <Figma />
-            </div>
-        </>
-    );
-};
+      // return () => {
+      //    body.removeChild(script);
+      // }
 
-const resetScrollbar = () => {
-    const aboutContainer = document.getElementById(styles.aboutContainer);
-    aboutContainer.scrollTop = 0;
-} 
+      ExperienceObserver();
 
-export default function About() {
-    const [aboutInfo, setAboutInfo] = useState(<AboutEducation />);
+   }, []);
 
-    const seeEducation = () => {
-        resetScrollbar();
-        setAboutInfo(
-            <AboutEducation />
-        );
-    };
 
-    const seeWork = () => {
-        resetScrollbar();
-        setAboutInfo(
-            <AboutWork />
-        );
-    };
-
-    const seeCoding = () => {
-        resetScrollbar();
-        setAboutInfo(
-            <AboutCoding />
-        );
-    };
-
-    useEffect(() => {
-        const body = document.body;
-        const header = document.getElementById('header');
-
-        body.style.background = 'rgb(22, 144, 196)';
-        body.style.overflowY = 'scroll';
-
-        header.style.position = 'sticky';
-        header.style.top = '2dvh';
-    });
-
-    return (
-        <>
-            <Head>
-                <title>Connor Pillsworth - About Me</title>
-                <link 
-                    rel="icon" 
-                    sizes="any"
-                    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ℹ️</text></svg>"
-                />
-            </Head>
-            <Header />
-            <div id={styles.contentLayout}>
-                <div id={styles.sidebar}>
-                    <h3 onClick={seeEducation}>Education</h3>
-                    <h3 onClick={seeWork}>Work Experience</h3>
-                    <h3 onClick={seeCoding}>Coding Experience</h3>
-                </div>
-                <div id={styles.aboutContainer}>
-                    {aboutInfo}
-                </div>
-            </div>
-        </>
-    );
+   return (
+      <>
+         <script 
+            async={false}
+            type='module' 
+            src='scripts/About.script.ts'
+         ></script>
+         <Head>
+               <title>Connor Pillsworth - About Me</title>
+               <link 
+                  rel="icon" 
+                  sizes="any"
+                  href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ℹ️</text></svg>"
+               />
+         </Head>
+         <Header />
+         <AboutEducation />
+         <AboutWork />
+         <AboutSkills />
+      </>
+   );
 };

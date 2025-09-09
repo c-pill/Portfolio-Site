@@ -1,195 +1,95 @@
-.section {
+.aboutSection {
    display: flex;
-   min-width: 100%;
-   min-height: 100dvh;
-   align-content: center;
-   place-items: center;
+   width: 80dvw;
+   height: fit-content;
+   flex-direction: column;
+   border-radius: 2rem;
+   background-color: white;
+   margin-bottom: 1rem;
+   align-items: center;
+
+   > h1 {
+      margin-bottom: 1.5em;
+      color: white;
+   }
+
+   > .experienceContainer {
+      display: grid;
+      grid-template-areas: 'content' 'skills';
+      width: 100%;
+      height: fit-content;
+      padding: 2dvw;
+      margin-bottom: 5dvw;
+      border-radius: 2rem;
+      background: white;
+
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateX(-50px);
+
+      .content {
+         grid-area: content;
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: space-evenly;
+         align-items: center;
+         gap: 2dvw;
+         font-size: clamp(9px, 1.5dvw, 20px);
+
+         .experienceText > * {
+            margin: 1dvh;
+         }
+
+         .experienceText > h5 {
+            margin-bottom: 3dvh;
+         }
+
+         .experienceImage {
+            grid-area: image;
+            position: relative;
+            width: 20dvw;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            background-size: contain;
+            padding: 0;
+         }
+
+      }
+   }
+
+   > .experienceContainer.show {
+      opacity: 1;
+      transform: translateX(0px);
+   }
+}
+
+.skillContainer {
+   grid-area: skills;
+   display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   gap: 3dvh 0dvh;
-   text-align: center;
+   justify-content: center;
+   margin: 1dvw;
+   padding: 1dvw;
+   gap: 4dvw;
+   
+   > .skillCard {
+      display: flex;
+      width: 8dvw;
+      height: 8dvw;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5rem;
+      padding: 0.5dvw;
+         
+      > img {
+         min-width: 0;
+         height: 80%;
+         aspect-ratio: 1/1;
+         object-fit: contain;
+      }
+   }
 }
 
-.codingContainer {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-self: center;
-    gap: 5em;
-    margin: 3em 2em;
-    padding: 2dvh;
-    width: 85%;
-    height: fit-content;
-    z-index: 1;
-}
-
-#aboutContainer {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    grid-area: 'aboutContainer';
-    border-radius: 2.5em;
-    overflow-x: hidden;
-}
-
-#aboutContainer::-webkit-scrollbar {
-    width: 12px;
-}
-
-#aboutContainer::-webkit-scrollbar-track {
-    background-color: rgb(22, 144, 196);
-    width: 30px;
-}
-
-#aboutContainer::-webkit-scrollbar-thumb {
-    background-color: gainsboro;
-}
-
-#sidebar > *:hover {
-    color: rgb(22, 144, 196);
-    cursor: pointer;
-}
-
-.rowTitle {
-    width: fit-content;
-    align-self: center;
-    padding-bottom: 20px
-}
-
-.infoImg {
-    width: clamp(15%, 10dvw, 80%);
-    height: auto;
-    aspect-ratio: 1/1;
-    object-fit: contain;
-}
-
-.infoCard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25%;
-    width: clamp(25px, 20%, 100px);
-    height: auto;
-    aspect-ratio: 1/1;
-    border: 0px 0px 10px 6px grey;
-    transition: box-shadow 0.3s ease-out;
-}
-
-.workContainer {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    align-items: center;
-    justify-content: space-around;
-    width: 95%;
-    height: fit-content;
-    padding-top: 3dvw;
-}
-
-.workImage {
-    grid-area: image;
-    position: relative;
-    width: auto;
-    height: max(30dvh, 135px);
-    aspect-ratio: 1/1;
-    object-fit: contain;
-    background-size: contain;
-    padding: 0;
-}
-
-.workImageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: max(30dvh, 135px);
-    object-fit: contain;
-    padding: 0;
-}
-
-.workImageContainer > * {
-    padding: 0;
-}
-
-.workText {
-    grid-area: text;
-}
-
-.workText > * {
-    margin: 1dvh;
-}
-
-.workText > h5 {
-    margin-bottom: 3dvh;
-}
-
-.bullet::before {
-    content: '▪️';
-}
-
-@media (max-width: 1180px) {
-    #contentLayout {
-        display: flex;
-        flex-direction: column;
-        background-color: gainsboro;
-        border-radius: 2.5em;
-        height: 75vh;
-        width: 90vw;
-        border-top-right-radius: 0%;
-        border-bottom-right-radius: 0%;
-        z-index: '-1';
-    }
-
-    #sidebar {
-        grid-area: 'sidebar';
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        border-bottom: 10px solid rgb(22, 144, 196);
-    }
-
-    #sidebar > * {
-        position: relative;
-        width: fit-content;
-        height: fit-content;
-        user-select: none;
-        margin: 2dvh;
-        padding: 0;
-        font-size: clamp(10px, 2.5dvw, 20px);
-        user-select: none;
-    }
-}
-
-@media (min-width: 1181px) {
-    #contentLayout {
-        background-color: gainsboro;
-        border-radius: 2.5em;
-        height: 75vh;
-        width: 90vw;
-        border-top-right-radius: 0%;
-        border-bottom-right-radius: 0%;
-        z-index: '-1';
-        display: grid;
-        grid-template-areas: 'sidebar aboutContainer';
-        grid-template-columns: '1fr 5fr';
-    }
-
-    #sidebar {
-        grid-area: 'sidebar';
-        display: flex;
-        flex-direction: column;
-        border-right: 10px solid rgb(22, 144, 196);
-    }
-
-    #sidebar > * {
-        position: relative;
-        width: fit-content;
-        height: fit-content;
-        user-select: none;
-        top: 2dvh;
-        margin: 2dvh;
-        padding: 0;
-    }
-}

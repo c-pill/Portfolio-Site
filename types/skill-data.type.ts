@@ -1,4 +1,4 @@
-export type ExperienceData = {
+export type SkillData = {
     href: string;
     title: string;
     alt: string;
@@ -6,6 +6,6 @@ export type ExperienceData = {
     shadowOn: boolean
 };
 
-export type ExperienceProps = {
-    props: ExperienceData;
+export type SkillProps = {
+    props: SkillData;
 };

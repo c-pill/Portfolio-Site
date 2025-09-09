@@ -1,5 +1,5 @@
-import Header from '@/components/Header';
-import ProfilePicture from '@/components/ProfilePicture';
+import Header from '@/components/global/Header';
+import ProfilePicture from '@/components/home/ProfilePicture';
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';

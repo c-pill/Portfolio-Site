@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '@/components/global/Header';
 import { GetGitRepoData, GitToList, SortProjects } from '@/public/scripts/Projects.script';
 import React, { useEffect, useState } from 'react';
 import { Sort } from '@/types/sort.enum'; 

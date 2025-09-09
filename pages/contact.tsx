@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Header from '@/components/Header';
+import Header from '@/components/global/Header';
 import { AnimateContactBalls } from '@/public/scripts/Contact.script'; 
-import ContactBalls from '@/components/ContactBalls';
+import ContactBalls from '@/components/contact/ContactBalls';
 import { AddGrowText, RemoveGrowText } from '@/public/scripts/globals';
 import React from 'react';
 import Head from 'next/head';

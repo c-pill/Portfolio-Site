@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import Header from '@/components/Header';
-import '@/components/LanguageCards';
+import Header from '@/components/global/Header';
+import '@/components/global/skills/Languages';
 import React from 'react';
 import Head from 'next/head';
-import { AboutEducation, AboutSkills, AboutWork } from '@/components/AboutSections';
+import { AboutEducation, AboutSkills, AboutWork } from '@/components/about/AboutSections';
 import { ExperienceObserver } from '@/public/scripts/About.script';
 
 export default function AboutMe() {

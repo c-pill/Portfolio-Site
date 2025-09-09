@@ -1,8 +1,9 @@
 import { ABB, ChimneyLakesSwimTeam, EdibleBrands, TheCoderSchool, UgaAi, UgaCsci } from "./AboutExperiences";
 import AboutStyles from '@/styles/About.module.css';
-import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from "./LanguageCards";
-import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from "./FrameworkCards";
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from "./Tools_ServicesCards";
+import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from "@/components/global/skills/Languages";
+import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from "@/components/global/skills/Frameworks";
+import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, 
+         Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from "@/components/global/skills/ToolsAndServices";
 
 export function AboutEducation() {
    return (

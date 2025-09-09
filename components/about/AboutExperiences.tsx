@@ -1,8 +1,9 @@
 import AboutStyles from '@/styles/About.module.css';
 import Image from 'next/image';
-import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Typescript } from './LanguageCards';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka } from './Tools_ServicesCards';
-import { MongoDB, MongooseODM, ReactJS, NodeJS, SpringBoot, Contentful, NestJS, DotNet } from './FrameworkCards';
+import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Typescript } from '@/components/global/skills/Languages';
+import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, 
+         MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka } from '@/components/global/skills/ToolsAndServices';
+import { MongoDB, MongooseODM, ReactJS, NodeJS, SpringBoot, Contentful, NestJS, DotNet } from '@/components/global/skills/Frameworks';
 
 export function UgaAi() {
    return (

@@ -1,10 +1,10 @@
 import styles from '@/styles/About.module.css';
 import Image from 'next/image';
-import { ExperienceProps } from "@/types/experience-data.type";
+import { SkillProps } from "@/types/skill-data.type";
 import { useState } from 'react';
 import { FastAverageColor, FastAverageColorResource, FastAverageColorResult } from 'fast-average-color';
 
-export function ExperienceCard({ props }: ExperienceProps) {
+export function SkillCard({ props }: SkillProps) {
     const [shadowStyle, setShadowStyle] = useState('');
     
     const handleColorExtract = (img: HTMLElement) => {

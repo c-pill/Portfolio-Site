@@ -83,7 +83,7 @@ export function Css({ shadowOn = true }) {
         href: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
         title: 'CSS',
         alt: 'CSS',
-        src: '/images/skills/Css.png',
+        src: '/images/skills/CSS.png',
         shadowOn
     };
     return <SkillCard key='CSS' props={data} />;

@@ -2,6 +2,7 @@ import React, { JSX } from "react";
 import { GitLogo } from "./ProjectLogos";
 import styles from '@/styles/Projects.module.css';
 import { ProjectData, ProjectProps } from "@/types/project-data.type";
+
 import * as LanguageCards from '@/components/global/skills/Languages';
 import * as FrameworkCards from '@/components/global/skills/Frameworks';
 import * as ToolsAndServicesCards from '@/components/global/skills/ToolsAndServices';
@@ -68,7 +69,7 @@ export function GitApiErrorCard() {
                 </a>
                 <GitLogo />
             </h2>
-            <h3 style={{textAlign: 'center'}}>Looks like there was an issue with the GitHub API. No worries! Press this card's title to view my projects on GitHub!</h3>
+            <h3 style={{textAlign: 'center'}}>Looks like there was an issue with the GitHub API. No worries! Press this card&apos;s title to view my projects on GitHub!</h3>
         </div>
     );
 };

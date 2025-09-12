@@ -1,9 +1,10 @@
 import AboutStyles from '@/styles/About.module.css';
+import SharedStyles from '@/styles/Shared.module.css';
 import Image from 'next/image';
 import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Typescript } from '@/components/global/skills/Languages';
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, 
-         MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka } from '@/components/global/skills/ToolsAndServices';
-import { MongoDB, MongooseODM, ReactJS, NodeJS, SpringBoot, Contentful, NestJS, DotNet } from '@/components/global/skills/Frameworks';
+import { Anaconda, DevOps, ESLint, Figma, GitHub, Jupyter, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, 
+         MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka, MongoDB } from '@/components/global/skills/ToolsAndServices';
+import { MongooseODM, ReactJS, NodeJS, SpringBoot, Contentful, NestJS, DotNet } from '@/components/global/skills/Frameworks';
 
 export function UgaAi() {
    return (
@@ -37,7 +38,7 @@ export function UgaAi() {
                         GPA: N/A
                      </li>
                      <li>
-                        Will have completed a Master's Thesis
+                        Will have completed a Master&apos;s Thesis
                      </li>
                      <li>
                         In progress! ⚒️
@@ -45,12 +46,14 @@ export function UgaAi() {
                   </ul>
             </div>
          </div>
-         <div className={AboutStyles.skillContainer} >
-            <Cpp />
+         <div className={SharedStyles.skillContainer} >
+            <Anaconda />
+            <Jupyter />
             <Python />
             <Kaggle />
             <Weka />
             <VisualStudioCode />
+            <Cpp />
             <GitHub />
             <MSOffice />
          </div>
@@ -77,7 +80,7 @@ export function UgaCsci() {
                      GPA: 3.88/4.00
                   </li>
                   <li>
-                     Studied abroad in Big Island, Hawai'i
+                     Studied abroad in Big Island, Hawai&apos;i
                   </li>
                </ul>
             </div>
@@ -89,13 +92,14 @@ export function UgaCsci() {
                <Image 
                   className={AboutStyles.experienceImage}
                   alt='UGA B.S. CSCI'
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Georgia_Athletics_logo.svg/250px-Georgia_Athletics_logo.png'
+                  src='/images/experiences/UGADawg.png'
                   width={100}
                   height={100}
+                  priority
                />
             </a>
          </div>
-         <div className={AboutStyles.skillContainer} >
+         <div className={SharedStyles.skillContainer} >
             <C />
             <Cpp />
             <Java />
@@ -135,7 +139,7 @@ export function EdibleBrands() {
                 <Image
                   className={AboutStyles.experienceImage}
                   alt='Edible Brands'
-                  src='/edible.gif'
+                  src='/images/experiences/edible.gif'
                   width={100}
                   height={100}
                />
@@ -166,7 +170,7 @@ export function EdibleBrands() {
                </ul>
             </div>
          </div>
-         <div className={AboutStyles.skillContainer} >
+         <div className={SharedStyles.skillContainer} >
             <Typescript />
             <Javascript />
             <DevOps />
@@ -227,7 +231,7 @@ export function ABB() {
                />
             </a>
          </div>
-         <div className={AboutStyles.skillContainer} >
+         <div className={SharedStyles.skillContainer} >
             <Cs />
             <DotNet />
             <Python />
@@ -286,7 +290,7 @@ export function TheCoderSchool() {
                </ul>
             </div>
          </div>
-         <div className={AboutStyles.skillContainer}>
+         <div className={SharedStyles.skillContainer}>
             <Cs />
             <Python />
             <Java />
@@ -326,7 +330,7 @@ export function ChimneyLakesSwimTeam() {
                </div>
                <a title='Chimney Lakes'>
                   <Image
-                     className={AboutStyles.workImage}
+                     className={AboutStyles.experienceImage}
                      alt='Chimney Lakes'
                      src='https://d1nmxxg9d5tdo.cloudfront.net/8514/logos/large/Chimney_Lakes.png'
                      width={100}

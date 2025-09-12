@@ -1,9 +1,13 @@
 import { ABB, ChimneyLakesSwimTeam, EdibleBrands, TheCoderSchool, UgaAi, UgaCsci } from "./AboutExperiences";
 import AboutStyles from '@/styles/About.module.css';
-import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Swift, Typescript } from "@/components/global/skills/Languages";
-import { Contentful, DotNet, MongoDB, MongooseODM, NestJS, NextJS, NodeJS, ReactJS, SpringBoot } from "@/components/global/skills/Frameworks";
-import { DevOps, ESLint, Figma, GitHub, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, MySql, 
-         Postman, SwaggerUI, Vercel, VirtualBox, VisualStudio, VisualStudioCode, Weka, Xcode } from "@/components/global/skills/ToolsAndServices";
+import SharedStyles from '@/styles/Shared.module.css';
+import * as LanguageCards from '@/components/global/skills/Languages';
+import * as FrameworkCards from '@/components/global/skills/Frameworks';
+import * as ToolsAndServicesCards from '@/components/global/skills/ToolsAndServices';
+
+const languageCards = Object.keys(LanguageCards).map((card) => LanguageCards[card]({}));
+const frameworkCards = Object.keys(FrameworkCards).map((card) => FrameworkCards[card]({}));
+const toolsAndServicesCards = Object.keys(ToolsAndServicesCards).map((card) => ToolsAndServicesCards[card]({}));
 
 export function AboutEducation() {
    return (
@@ -33,55 +37,26 @@ export function AboutSkills() {
          <h1>Skills</h1>
          <div className={AboutStyles.experienceContainer}>
             <h3 style={{textAlign: 'center'}}>Languages</h3>
-            <div className={AboutStyles.skillContainer}>
-               <C />
-               <Cpp />
-               <Cs />
-               <Python />
-               <Java />
-               <Swift />
-               <Asm />
-               <Html />
-               <Css />
-               <Javascript />
-               <Typescript />
-               <Sql />
+            <div className={SharedStyles.skillContainer}>
+               {
+                  languageCards
+               }
             </div>
          </div>
          <div className={AboutStyles.experienceContainer}>
             <h3 style={{textAlign: 'center'}}>Frameworks</h3>
-            <div className={AboutStyles.skillContainer}>
-               <NodeJS />
-               <ReactJS />
-               <NestJS />
-               <NextJS />
-               <MongoDB />
-               <MongooseODM />
-               <SpringBoot />
-               <Contentful />
-               <DotNet />
+            <div className={SharedStyles.skillContainer}>
+               {
+                  frameworkCards
+               }
             </div>
          </div>
          <div className={AboutStyles.experienceContainer}>
-            <h3 style={{textAlign: 'center'}}>Tools/Services</h3>
-            <div className={AboutStyles.skillContainer}>
-               <VisualStudioCode />
-               <VisualStudio />
-               <GitHub />
-               <Matlab />
-               <Xcode />
-               <Vercel />
-               <Postman />
-               <Weka />
-               <VirtualBox />
-               <MSOffice />
-               <DevOps />
-               <MySql />
-               <MicrosoftSqlServer />
-               <SwaggerUI />
-               <Kaggle />
-               <ESLint />
-               <Figma />
+            <h3 style={{textAlign: 'center'}}>Tools and Services</h3>
+            <div className={SharedStyles.skillContainer}>
+               {
+                  toolsAndServicesCards
+               }
             </div>
          </div>
       </section>

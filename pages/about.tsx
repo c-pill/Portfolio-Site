@@ -1,38 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/global/Header';
 import '@/components/global/skills/Languages';
 import React from 'react';
 import Head from 'next/head';
 import { AboutEducation, AboutSkills, AboutWork } from '@/components/about/AboutSections';
-import { ExperienceObserver } from '@/public/scripts/About.script';
+import { AboutObserver, ExperienceObserver } from '@/public/scripts/About.script';
+import { AboutBackgroundObjects } from '@/components/about/AboutBackgroundObject';
 
 export default function AboutMe() {
+   const sectionIndexRef = useRef(0);
+   const [backgroundObjectSrc, setBackgroundObjectSrc] = useState('/images/experiences/UGADawg.png');
+
    useEffect(() => {
-      const body = document.body;
-      // body.style.background = 'rgb(22, 144, 196)';
-      body.style.background = 'rgba(195, 195, 197, 1)';
-      body.style.overflowY = 'scroll';
-
-      // const script = document.createElement('script');
-      // script.src = 'scripts/About.script.ts';
-      // body.appendChild(script);
-
-      // return () => {
-      //    body.removeChild(script);
-      // }
-
+      AboutObserver(sectionIndexRef, setBackgroundObjectSrc);
       ExperienceObserver();
-
    }, []);
-
 
    return (
       <>
-         <script 
-            async={false}
-            type='module' 
-            src='scripts/About.script.ts'
-         ></script>
          <Head>
                <title>Connor Pillsworth - About Me</title>
                <link 
@@ -45,6 +30,7 @@ export default function AboutMe() {
          <AboutEducation />
          <AboutWork />
          <AboutSkills />
+         <AboutBackgroundObjects number={5} src={backgroundObjectSrc}/>
       </>
    );
 };

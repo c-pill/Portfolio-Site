@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
 .aboutSection {
    display: flex;
-   width: 80dvw;
+   width: fit-content;
    height: fit-content;
    flex-direction: column;
    border-radius: 2rem;
-   background-color: white;
    margin-bottom: 1rem;
    align-items: center;
+   padding: 2dvw;
+   margin-left: auto;
+   margin-right: auto;
 
    > h1 {
-      margin-bottom: 1.5em;
+      font-family: "Tilt Prism", sans-serif;
+      font-size: 5dvw;
       color: white;
    }
 
    > .experienceContainer {
-      display: grid;
-      grid-template-areas: 'content' 'skills';
-      width: 100%;
+      display: flex;
+      /* grid-template-areas: 'content' 'skills'; */
+      flex-direction: column;
+      width: 60dvw;
       height: fit-content;
       padding: 2dvw;
       margin-bottom: 5dvw;
@@ -28,14 +34,15 @@
       transform: translateX(-50px);
 
       .content {
-         grid-area: content;
+         /* grid-area: content; */
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;
          justify-content: space-evenly;
-         align-items: center;
          gap: 2dvw;
          font-size: clamp(9px, 1.5dvw, 20px);
+         width: 100%;
+         margin-top: 5%;
 
          .experienceText > * {
             margin: 1dvh;
@@ -50,46 +57,36 @@
             position: relative;
             width: 20dvw;
             height: auto;
-            aspect-ratio: 1/1;
             object-fit: contain;
             background-size: contain;
             padding: 0;
          }
-
       }
    }
 
    > .experienceContainer.show {
-      opacity: 1;
+      opacity: 0.95;
       transform: translateX(0px);
    }
-}
 
-.skillContainer {
-   grid-area: skills;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
-   margin: 1dvw;
-   padding: 1dvw;
-   gap: 4dvw;
-   
-   > .skillCard {
-      display: flex;
-      width: 8dvw;
-      height: 8dvw;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5rem;
-      padding: 0.5dvw;
-         
-      > img {
-         min-width: 0;
-         height: 80%;
-         aspect-ratio: 1/1;
-         object-fit: contain;
-      }
+   > .experienceContainer.show:hover {
+      opacity: 1;
    }
 }
 
+@keyframes backgroundAnimation {
+   from {
+      transform: translateX(0%);
+   }
+   to {
+      transform: translateX(calc(100dvw - 100%));
+   }
+}
+
+.backgroundObject {
+   position: fixed;
+   left: 0%;
+   width: auto;
+   height: 15dvh;
+   z-index: -1;
+}

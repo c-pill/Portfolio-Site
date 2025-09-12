@@ -6,7 +6,7 @@ export function VisualStudioCode({ shadowOn = true }) {
         href: 'https://code.visualstudio.com/',
         title: 'Visual Studio Code',
         alt: 'Visual Studio Code',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/250px-Visual_Studio_Code_1.35_icon.svg.png',
+        src: '/images/skills/Visual Studio Code.png',
         shadowOn
     };
     return <SkillCard key='Visual Studio Code' props={data} />;
@@ -17,7 +17,7 @@ export function VisualStudio({ shadowOn = true }) {
         href: 'https://visualstudio.microsoft.com/',
         title: 'Visual Studio',
         alt: 'Visual Studio',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Visual_Studio_Icon_2022.svg/120px-Visual_Studio_Icon_2022.svg.png',
+        src: '/images/skills/Visual Studio.png',
         shadowOn
     };
     return <SkillCard key='Visual Studio' props={data} />;
@@ -28,7 +28,7 @@ export function GitHub({ shadowOn = true }) {
         href: 'https://github.com/',
         title: 'GitHub',
         alt: 'GitHub',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/250px-GitHub_Invertocat_Logo.svg.png',
+        src: '/images/skills/GitHub.png',
         shadowOn
     };
     return <SkillCard key='GitHub' props={data} />;
@@ -39,7 +39,7 @@ export function Matlab({ shadowOn = true }) {
         href: 'https://www.mathworks.com/products/matlab.html',
         title: 'MATLAB',
         alt: 'MATLAB',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Matlab_Logo.png/250px-Matlab_Logo.png',
+        src: '/images/skills/Matlab.png',
         shadowOn
     };
     return <SkillCard key='MATLAB' props={data} />;
@@ -50,7 +50,7 @@ export function Xcode({ shadowOn = true }) {
         href: 'https://developer.apple.com/xcode/',
         title: 'Xcode',
         alt: 'Xcode',
-        src: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Xcode_14_icon.png/250px-Xcode_14_icon.png',
+        src: '/images/skills/Xcode.png',
         shadowOn
     };
     return <SkillCard key='Xcode' props={data} />;
@@ -61,7 +61,7 @@ export function Postman({ shadowOn = true }) {
         href: 'https://www.postman.com/',
         title: 'Postman',
         alt: 'Postman',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Postman_%28software%29.png/250px-Postman_%28software%29.png',
+        src: '/images/skills/Postman.png',
         shadowOn
     };
     return <SkillCard key='Postman' props={data} />;
@@ -72,7 +72,7 @@ export function VirtualBox({ shadowOn = true }) {
         href: 'https://www.virtualbox.org/',
         title: 'VirtualBox',
         alt: 'VirtualBox',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/VirtualBox_2024_Logo.svg/250px-VirtualBox_2024_Logo.svg.png',
+        src: '/images/skills/VirtualBox.png',
         shadowOn
     };
     return <SkillCard key='VirtualBox' props={data} />;
@@ -83,7 +83,7 @@ export function MSOffice({ shadowOn = true }) {
         href: 'https://www.microsoft.com/en-us/microsoft-365',
         title: 'Microsoft Office',
         alt: 'Microsoft Office',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Microsoft_Office_2013-2019_logo_and_wordmark.svg/640px-Microsoft_Office_2013-2019_logo_and_wordmark.svg.png',
+        src: '/images/skills/Microsoft Office.png',
         shadowOn
     };
     return <SkillCard key='Microsoft Office' props={data} />;
@@ -94,7 +94,7 @@ export function DevOps({ shadowOn = true }) {
         href: 'https://azure.microsoft.com/en-us/products/devops',
         title: 'Azure DevOps',
         alt: 'Azure DevOps',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/120px-Microsoft_Azure.svg.png',
+        src: '/images/skills/DevOps.png',
         shadowOn
     };
     return <SkillCard key='Azure DevOps' props={data} />;
@@ -105,7 +105,7 @@ export function MySql({ shadowOn = true }) {
         href: 'https://www.mysql.com/',
         title: 'MySQL',
         alt: 'MySQL',
-        src: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/MySQL_logo.svg/120px-MySQL_logo.svg.png',
+        src: '/images/skills/MySQL.png',
         shadowOn
     };
     return <SkillCard key='MySQL' props={data} />;
@@ -116,7 +116,7 @@ export function MicrosoftSqlServer({ shadowOn = true }) {
         href: 'https://www.microsoft.com/en-us/sql-server',
         title: 'Microsoft SQL Server',
         alt: 'Microsoft SQL Server',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Microsoft_SQL_Server_2025_icon.svg/250px-Microsoft_SQL_Server_2025_icon.svg.png',
+        src: '/images/skills/Microsoft SQL Server.png',
         shadowOn
     };
     return <SkillCard key='Microsoft SQL Server' props={data} />;
@@ -127,7 +127,7 @@ export function SwaggerUI({ shadowOn = true }) {
         href: 'https://swagger.io/tools/swagger-ui/',
         title: 'Swagger UI',
         alt: 'Swagger UI',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Swagger-logo.png/190px-Swagger-logo.png',
+        src: '/images/skills/SwaggerUI.png',
         shadowOn
     };
     return <SkillCard key='Swagger UI' props={data} />;
@@ -138,7 +138,7 @@ export function Kaggle({ shadowOn = true }) {
         href: 'https://www.kaggle.com/',
         title: 'Kaggle',
         alt: 'Kaggle',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kaggle_Logo.svg/250px-Kaggle_Logo.svg.png',
+        src: '/images/skills/Kaggle.png',
         shadowOn
     };
     return <SkillCard key='Kaggle' props={data} />;
@@ -149,7 +149,7 @@ export function ESLint({ shadowOn = true }) {
         href: 'https://eslint.org/',
         title: 'ESLint',
         alt: 'ESLint',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/ESLint_logo.svg/250px-ESLint_logo.svg.png',
+        src: '/images/skills/ESLint.png',
         shadowOn
     };
     return <SkillCard key='ESLint' props={data} />;
@@ -160,7 +160,7 @@ export function Figma({ shadowOn = true }) {
         href: 'https://www.figma.com/',
         title: 'Figma',
         alt: 'Figma',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/120px-Figma-logo.svg.png',
+        src: '/images/skills/Figma.png',
         shadowOn
     };
     return <SkillCard key='Figma' props={data} />;
@@ -171,7 +171,7 @@ export function Vercel({ shadowOn = true }) {
         href: 'https://vercel.com/docs',
         title: 'Vercel',
         alt: 'Vercel',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ionicons_logo-vercel.svg/640px-Ionicons_logo-vercel.svg.png',
+        src: '/images/skills/Vercel.png',
         shadowOn
     };
     return <SkillCard key='Vercel' props={data} />;
@@ -182,7 +182,7 @@ export function Weka({ shadowOn = true }) {
         href: 'https://ml.cms.waikato.ac.nz/weka',
         title: 'Weka',
         alt: 'Weka',
-        src: 'https://miro.medium.com/v2/resize:fit:512/format:webp/0*ANfeV4epFkV3Ix4n.png',
+        src: '/images/skills/Weka.png',
         shadowOn
     };
     return <SkillCard key='Weka' props={data} />;
@@ -194,8 +194,96 @@ export function OpenAI({ shadowOn = true }) {
         href: 'https://openai.com/chatgpt/overview/',
         title: 'OpenAI',
         alt: 'OpenAI',
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/OpenAI_logo_2025_%28symbol%29.svg/640px-OpenAI_logo_2025_%28symbol%29.svg.png',
+        src: '/images/skills/OpenAI.png',
         shadowOn
     };
     return <SkillCard key='OpenAI' props={data} />;
+};
+
+export function UbuntuServer({ shadowOn = true }) {
+    const data: SkillData = {
+        href: 'https://ubuntu.com/server',
+        title: 'Ubuntu Server',
+        alt: 'Ubuntu Server',
+        src: '/images/skills/Ubuntu.png',
+        shadowOn
+    };
+    return <SkillCard key='Ubuntu Server' props={data} />;
+};
+
+export function Anaconda({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://www.anaconda.com/docs/main',
+        title: 'Anaconda',
+        alt: 'Anaconda',
+        src: '/images/skills/Anaconda.png',
+        shadowOn
+    };
+    return <SkillCard key='Anaconda' props={data} />;
+};
+
+export function Jupyter({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://jupyter.org/',
+        title: 'Juypter',
+        alt: 'Jupyter',
+        src: '/images/skills/Jupyter.svg',
+        shadowOn
+    };
+    return <SkillCard key='Jupyter' props={data} />;
+};
+
+export function Vite({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://vite.dev/',
+        title: 'Vite',
+        alt: 'Vite',
+        src: '/images/skills/Vite.svg',
+        shadowOn
+    };
+    return <SkillCard key='Vite' props={data} />;
+};
+
+export function Podman({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://podman.io/',
+        title: 'Podman',
+        alt: 'Podman',
+        src: '/images/skills/Podman.png',
+        shadowOn
+    };
+    return <SkillCard key='Podman' props={data} />;
+};
+
+export function Docker({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://www.docker.com/',
+        title: 'Docker',
+        alt: 'Docker',
+        src: '/images/skills/Docker.png',
+        shadowOn
+    };
+    return <SkillCard key='Docker' props={data} />;
+};
+
+export function Cloudflare({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://www.cloudflare.com/',
+        title: 'Cloudflare',
+        alt: 'Cloudflare',
+        src: '/images/skills/Cloudflare.png',
+        shadowOn
+    };
+    return <SkillCard key='Cloudflare' props={data} />;
+};
+
+export function MongoDB({ shadowOn = true }) {
+    const data: SkillData = {
+        href: 'https://www.mongodb.com/',
+        title: 'MongoDB',
+        alt: 'MongoDB',
+        src: '/images/skills/MongoDB.png',
+        shadowOn
+    };
+    return <SkillCard key='MongoDB' props={data} />;
 };

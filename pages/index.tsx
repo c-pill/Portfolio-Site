@@ -47,7 +47,7 @@ export default function Home() {
     profilePicture.style.right = '5%';
 
     excuse.style.opacity = '1';
-  }, []);
+  }, [animated, tooSmall]);
 
   return (
     <>

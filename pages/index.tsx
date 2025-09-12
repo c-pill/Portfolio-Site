@@ -1,5 +1,5 @@
-import Header from '@/components/Header';
-import ProfilePicture from '@/components/ProfilePicture';
+import Header from '@/components/global/Header';
+import ProfilePicture from '@/components/home/ProfilePicture';
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
@@ -47,7 +47,7 @@ export default function Home() {
     profilePicture.style.right = '5%';
 
     excuse.style.opacity = '1';
-  });
+  }, [animated, tooSmall]);
 
   return (
     <>
@@ -63,7 +63,7 @@ export default function Home() {
       <div id='content'>
         <div id={styles.greeting}>Hello!</div>
         <ProfilePicture />
-        <div id={styles.welcome}>Welcome to Connor Pillsworth's Portfolio!</div>
+        <div id={styles.welcome}>Welcome to Connor Pillsworth&apos;s Portfolio!</div>
         <div id={styles.excuse}>***Proceed with caution: low budget animations ahead</div>
       </div>
     </>

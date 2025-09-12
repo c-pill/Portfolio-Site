@@ -1,0 +1,37 @@
+.skillContainer {
+   grid-area: skills;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   width: 100%;
+   flex-grow: 1;
+   flex-shrink: 1;
+   margin-top: 5%;
+   margin-bottom: 5%;
+
+   > .skillCard {
+      display: flex;
+      /* flex: 1 1 0; */
+      /* width: 8dvw; */
+      /* height: 8dvw; */
+      width: 10%;
+      /* flex-grow: 1 1 25px; */
+      height: auto;
+      aspect-ratio: 1/1;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5rem;
+      padding: 1%;
+         
+      > img {
+         max-width: 80%;
+         max-height: 80%;
+         aspect-ratio: 1/1;
+         /* height: 80%; */
+         object-fit: contain;
+      }
+   }
+}

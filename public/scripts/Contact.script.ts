@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styles from '@/styles/Contact.module.css';
 import { AnimationData } from "@/types/animation-data.type";
 

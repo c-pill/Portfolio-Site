@@ -2,13 +2,14 @@ import React, { JSX } from "react";
 import { GitLogo } from "./ProjectLogos";
 import styles from '@/styles/Projects.module.css';
 import { ProjectData, ProjectProps } from "@/types/project-data.type";
-import * as LanguageCards from '@/components/LanguageCards';
-import * as FrameworkCards from '@/components/FrameworkCards';
-import * as Tools_ServicesCards from '@/components/Tools_ServicesCards';
+
+import * as LanguageCards from '@/components/global/skills/Languages';
+import * as FrameworkCards from '@/components/global/skills/Frameworks';
+import * as ToolsAndServicesCards from '@/components/global/skills/ToolsAndServices';
 
 const languageCards = Object.keys(LanguageCards).map((card) => LanguageCards[card]({shadowOn: false}));
 const frameworkCards = Object.keys(FrameworkCards).map((card) => FrameworkCards[card]({shadowOn: false}));
-const toolsServicesCards = Object.keys(Tools_ServicesCards).map((card) => Tools_ServicesCards[card]({shadowOn: false}));
+const toolsServicesCards = Object.keys(ToolsAndServicesCards).map((card) => ToolsAndServicesCards[card]({shadowOn: false}));
 
 const languageDict = new Map();
 const frameworkDict = new Map();
@@ -68,7 +69,7 @@ export function GitApiErrorCard() {
                 </a>
                 <GitLogo />
             </h2>
-            <h3 style={{textAlign: 'center'}}>Looks like there was an issue with the GitHub API. No worries! Press this card's title to view my projects on GitHub!</h3>
+            <h3 style={{textAlign: 'center'}}>Looks like there was an issue with the GitHub API. No worries! Press this card&apos;s title to view my projects on GitHub!</h3>
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { GitHubResponse } from "@/types/github-response.type";
 import { ProjectData } from "@/types/project-data.type";
 import { Sort } from "@/types/sort.enum";
 import { GetDominantColor } from "./globals";
-import { GitApiErrorCard, ProjectCards } from "@/components/ProjectCard";
+import { GitApiErrorCard, ProjectCards } from "@/components/projects/ProjectCard";
 import { JSX } from "react";
 
 export async function GetGitRepoData() {

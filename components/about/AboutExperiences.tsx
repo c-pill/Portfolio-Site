@@ -173,6 +173,7 @@ export function EdibleBrands() {
          <div className={SharedStyles.skillContainer} >
             <Typescript />
             <Javascript />
+            <Css />
             <DevOps />
             <OpenAI />
             <Contentful />

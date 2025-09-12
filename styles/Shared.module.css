@@ -14,12 +14,8 @@
 
    > .skillCard {
       display: flex;
-      /* flex: 1 1 0; */
-      /* width: 8dvw; */
-      /* height: 8dvw; */
-      width: 10%;
-      /* flex-grow: 1 1 25px; */
-      height: auto;
+      width: 6dvw;
+      height: 6dvw;
       aspect-ratio: 1/1;
       align-items: center;
       justify-content: center;
@@ -30,7 +26,6 @@
          max-width: 80%;
          max-height: 80%;
          aspect-ratio: 1/1;
-         /* height: 80%; */
          object-fit: contain;
       }
    }

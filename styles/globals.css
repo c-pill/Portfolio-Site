@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 
 #header > * {
    color: black;
-   padding: 2em;
+   padding: 0 2em;
    text-decoration: none;
    user-select: none;
    width: fit-content;

@@ -7,119 +7,113 @@ import { GitApiErrorCard, ProjectCards } from "@/components/projects/ProjectCard
 import { JSX } from "react";
 
 export async function GetGitRepoData() {
-    const convertTimeToString = (dateString: string) => {
-        const date: Date = new Date(dateString);
-        const readableString = date.toLocaleString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-        });
-        return readableString;
-    };
+   const convertTimeToString = (dateString: string) => {
+      const date: Date = new Date(dateString);
+      const readableString = date.toLocaleString('en-US', {
+         weekday: 'long',
+         year: 'numeric',
+         month: 'long',
+         day: 'numeric',
+         hour: '2-digit',
+         minute: '2-digit',
+         hour12: true
+      });
+      return readableString;
+   };
 
-    const convertTimeToNumber = (dateString: string) => {
-        const date: Date = new Date(dateString);
-        return date.getTime();
-    };
+   const convertTimeToNumber = (dateString: string) => {
+      const date: Date = new Date(dateString);
+      return date.getTime();
+   };
 
-    const formatSize = (size_kb: number) => {
-        if (size_kb < 1000) return `${size_kb} KB`;
-        size_kb /= 1000;
-        if (size_kb < 1000) return `${size_kb} MB`;
-        size_kb /= 1000;
-        return `${size_kb} GB`;
-    };
+   const formatSize = (size_kb: number) => {
+      if (size_kb < 1000) return `${size_kb} KB`;
+      size_kb /= 1000;
+      if (size_kb < 1000) return `${size_kb} MB`;
+      size_kb /= 1000;
+      return `${size_kb} GB`;
+   };
 
-    const gitLogo = new Image();
-    gitLogo.crossOrigin = 'anonymous';
-    gitLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/250px-GitHub_Invertocat_Logo.svg.png';
-    gitLogo.width = 100;
-    gitLogo.height = 100;
+   const gitLogo = new Image();
+   gitLogo.src = 'images/skills/GitHub.png';
 
-    const gitColor: number[] = await GetDominantColor(gitLogo) as number[];
+   const gitColor: number[] = await GetDominantColor(gitLogo) as number[];
 
-    const gitResponse: GitHubResponse = await axios.get('https://api.github.com/users/c-pill/repos')
-        .then((response) => response.data)
-        .catch((error) => {
-            console.error(error);
-            return null;
-        });
+   const gitResponse: GitHubResponse = await axios.get('https://api.github.com/users/c-pill/repos')
+      .then((response) => response.data)
+      .catch(() => null);
 
-    if (!gitResponse) return null;
+   if (!gitResponse) return null;
 
-    const gitRepoData: ProjectData[] = gitResponse.map(({
-        name,
-        html_url,
-        description,
-        created_at,
-        pushed_at,
-        size,
-        languages_url
-    }) => ({
-        name,
-        url: html_url,
-        description,
-        created_at_string: convertTimeToString(created_at),
-        pushed_at_string: convertTimeToString(pushed_at),
-        created_at_number: convertTimeToNumber(created_at),
-        pushed_at_number: convertTimeToNumber(pushed_at),
-        size_kb: size,
-        size_string: formatSize(size),
-        languages: [languages_url],
-        border_color: `rgb(${gitColor.join(', ')}`
+   const gitRepoData: ProjectData[] = gitResponse.map(({
+      name,
+      html_url,
+      description,
+      created_at,
+      pushed_at,
+      size,
+      languages_url
+   }) => ({
+      name,
+      url: html_url,
+      description,
+      created_at_string: convertTimeToString(created_at),
+      pushed_at_string: convertTimeToString(pushed_at),
+      created_at_number: convertTimeToNumber(created_at),
+      pushed_at_number: convertTimeToNumber(pushed_at),
+      size_kb: size,
+      size_string: formatSize(size),
+      languages: [languages_url],
+      border_color: `rgb(${gitColor.join(', ')}`
 
-    })) as unknown as ProjectData[];
+   })) as unknown as ProjectData[];
 
-    for (let i = 0; i < gitRepoData.length; i++) {
-        const languages = await axios.get(gitRepoData[i].languages[0])
-            .then((response) => Object.keys(response.data))
-            .catch((error) => {
-                console.error(error);
-                return [];
-            });
-        gitRepoData[i].languages = languages;
-    }
+   for (let i = 0; i < gitRepoData.length; i++) {
+      const languages = await axios.get(gitRepoData[i].languages[0])
+         .then((response) => Object.keys(response.data))
+         .catch((error) => {
+               console.error(error);
+               return [];
+         });
+      gitRepoData[i].languages = languages;
+   }
 
-    return gitRepoData;
+   return gitRepoData;
 
 };
 
 export function SortProjects(projectData: ProjectData[], sort: string) {
-    switch (sort) {
-        case Sort.Newest: 
-            projectData.sort((a, b) => b.created_at_number - a.created_at_number);
-            break;
-        case Sort.Oldest:
-            projectData.sort((a, b) => a.created_at_number - b.created_at_number);
-            break;
-        case Sort.Smallest:
-            projectData.sort((a, b) => a.size_kb - b.size_kb);
-            break;
-        case Sort.Largest:
-            projectData.sort((a, b) => b.size_kb - a.size_kb);
-            break;
-        case Sort.Terminal:
-            break;
-        default:
-            break;
-    };
+   switch (sort) {
+      case Sort.Newest: 
+         projectData.sort((a, b) => b.created_at_number - a.created_at_number);
+         break;
+      case Sort.Oldest:
+         projectData.sort((a, b) => a.created_at_number - b.created_at_number);
+         break;
+      case Sort.Smallest:
+         projectData.sort((a, b) => a.size_kb - b.size_kb);
+         break;
+      case Sort.Largest:
+         projectData.sort((a, b) => b.size_kb - a.size_kb);
+         break;
+      case Sort.Terminal:
+         break;
+      default:
+         break;
+   };
 };
 
 export function GitToList(gitData: ProjectData[], sort: string, searchQuery: string) {
-    if (gitData == null) return GitApiErrorCard();
-    
-    SortProjects(gitData, sort);
-    const searchLowerCase = searchQuery.toLowerCase();
+   if (gitData == null) return GitApiErrorCard();
+   
+   SortProjects(gitData, sort);
+   const searchLowerCase = searchQuery.toLowerCase();
 
-    const projectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
-        const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
-        const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
-        return nameIncludes || descriptionIncludes;
-    }));
-       
-    return projectList;
+   const projectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
+      const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
+      const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
+      return nameIncludes || descriptionIncludes;
+   }));
+      
+   return projectList;
 };

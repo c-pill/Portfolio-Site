@@ -14,8 +14,8 @@
 
    > .skillCard {
       display: flex;
-      width: 6dvw;
-      height: 6dvw;
+      width: 12%;
+      height: auto;
       aspect-ratio: 1/1;
       align-items: center;
       justify-content: center;

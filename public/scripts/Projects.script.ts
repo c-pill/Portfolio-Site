@@ -4,7 +4,7 @@ import { ProjectData } from "@/types/project-data.type";
 import { Sort } from "@/types/sort.enum";
 import { GetDominantColor } from "./globals";
 import { GitApiErrorCard, ProjectCards } from "@/components/projects/ProjectCard";
-import { JSX } from "react";
+import React, { JSX } from "react";
 
 export async function GetGitRepoData() {
    const convertTimeToString = (dateString: string) => {
@@ -103,7 +103,11 @@ export function SortProjects(projectData: ProjectData[], sort: string) {
    };
 };
 
-export function GitToList(gitData: ProjectData[], sort: string, searchQuery: string) {
+export function GitToList(
+   gitData: ProjectData[],
+   sort: string,
+   searchQuery: string
+) {
    if (gitData == null) return GitApiErrorCard();
    
    SortProjects(gitData, sort);

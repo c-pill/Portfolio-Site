@@ -10,19 +10,19 @@ html, body {
    overflow-y: auto;
    overflow-x: hidden;
    width: 100%;
-   min-height: 100dvh;
-
-   scrollbar-width: none;
+   min-height: 95dvh;
 }
 
-body::-webkit-scrollbar {
-   display: none;
+html {
+   scrollbar-color: white transparent;
+   scrollbar-gutter: stable;
 }
 
 #header {
    position: relative;
    display: flex;
    align-items: center;
+   text-align: center;
    padding: 1.25em;
    margin: 2dvh auto 7dvh auto;
    width: fit-content;

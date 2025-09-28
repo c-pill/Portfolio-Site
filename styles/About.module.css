@@ -34,7 +34,6 @@
       transform: translateX(-50px);
 
       .content {
-         /* grid-area: content; */
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;

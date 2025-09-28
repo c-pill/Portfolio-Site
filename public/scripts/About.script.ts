@@ -20,7 +20,7 @@ export function AboutChangeBackground(i: number, setBackgroundObjectSrc: Dispatc
       backgroundObject.style.animation = `${AboutStyles.backgroundAnimation} 3.5s linear ${index * 0.5}s infinite alternate both`;
       if (i == 0) {
          setBackgroundObjectSrc('/images/experiences/UGADawg.png');
-         document.body.style.background = 'red';
+         document.body.style.background = 'rgb(186, 12, 47)';
       }
       else if (i == 1) {
          setBackgroundObjectSrc('/images/background/laptop\ graphic.png');

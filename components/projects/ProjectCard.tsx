@@ -1,4 +1,4 @@
-import React, { JSX } from "react";
+import React from "react";
 import { GitLogo } from "./ProjectLogos";
 import ProjectStyles from '@/styles/Projects.module.css';
 import { ProjectData, ProjectProps } from "@/types/project-data.type";

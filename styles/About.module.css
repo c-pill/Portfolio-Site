@@ -20,7 +20,6 @@
 
    > .experienceContainer {
       display: flex;
-      /* grid-template-areas: 'content' 'skills'; */
       flex-direction: column;
       width: 60dvw;
       height: fit-content;

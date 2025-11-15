@@ -127,6 +127,48 @@ export function UgaCsci() {
     );
 };
 
+export function UgaResearch() {
+   return (
+      <div className={AboutStyles.experienceContainer}>
+         <div className={AboutStyles.content} style={{flexWrap: 'wrap-reverse'}}>
+            <div className={AboutStyles.experienceText}>
+               <h3>
+                  University of Georgia
+               </h3>
+               <h4>
+                  Graduate Student Researcher
+               </h4>
+               <h5>
+                  September 2025 - Present
+               </h5>
+               <ul>
+                  <li>
+                     Perform scholarly research
+                  </li>
+                  <li>
+                     Assist in writing scholarly work
+                  </li>
+               </ul>
+            </div>
+            <a 
+               href='https://engineering.uga.edu/'
+               target='_blank'
+               title='UGA Research'
+            >
+               <Image 
+                  className={AboutStyles.experienceImage}
+                  alt='UGA B.S. CSCI'
+                  src='/images/experiences/UGADawg.png'
+                  width={100}
+                  height={100}
+                  priority
+               />
+            </a>
+         </div>
+      </div>
+    );
+};
+
 export function EdibleBrands() {
    return (
       <div className={AboutStyles.experienceContainer}>

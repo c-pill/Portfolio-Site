@@ -1,4 +1,4 @@
-import { ABB, ChimneyLakesSwimTeam, EdibleBrands, TheCoderSchool, UgaAi, UgaCsci } from "./AboutExperiences";
+import { ABB, ChimneyLakesSwimTeam, EdibleBrands, TheCoderSchool, UgaAi, UgaCsci, UgaResearch } from "./AboutExperiences";
 import AboutStyles from '@/styles/About.module.css';
 import SharedStyles from '@/styles/Shared.module.css';
 import * as LanguageCards from '@/components/global/skills/Languages';
@@ -23,6 +23,7 @@ export function AboutWork() {
    return (
       <section className={AboutStyles.aboutSection}>
          <h1>Work</h1>
+         <UgaResearch />
          <EdibleBrands />
          <ABB />
          <TheCoderSchool />

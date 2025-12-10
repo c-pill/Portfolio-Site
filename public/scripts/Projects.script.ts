@@ -3,8 +3,10 @@ import { GitHubResponse } from "@/types/github-response.type";
 import { ProjectData } from "@/types/project-data.type";
 import { Sort } from "@/types/sort.enum";
 import { GetDominantColor } from "./globals";
-import { GitApiErrorCard, ProjectCards } from "@/components/projects/ProjectCard";
-import React, { JSX } from "react";
+import { ProjectCards } from "@/components/projects/ProjectCard";
+import { GitApiErrorCard } from "@/components/projects/GitApiErrorCard";
+import { JSX } from "react";
+import { GitLogo } from "@/components/projects/ProjectLogos";
 
 export async function GetGitRepoData() {
    const convertTimeToString = (dateString: string) => {
@@ -56,6 +58,7 @@ export async function GetGitRepoData() {
    }) => ({
       name,
       url: html_url,
+      logo: GitLogo(),
       description,
       created_at_string: convertTimeToString(created_at),
       pushed_at_string: convertTimeToString(pushed_at),
@@ -113,11 +116,11 @@ export function GitToList(
    SortProjects(gitData, sort);
    const searchLowerCase = searchQuery.toLowerCase();
 
-   const projectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
+   const gitProjectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
       const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
       const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
       return nameIncludes || descriptionIncludes;
    }));
       
-   return projectList;
+   return gitProjectList;
 };

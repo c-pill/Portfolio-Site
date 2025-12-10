@@ -1,8 +1,7 @@
 import React from "react";
-import { GitLogo } from "./ProjectLogos";
+import SharedStyles from '@/styles/Shared.module.css';
 import ProjectStyles from '@/styles/Projects.module.css';
 import { ProjectData, ProjectProps } from "@/types/project-data.type";
-import SharedStyles from '@/styles/Shared.module.css';
 
 import * as LanguageCards from '@/components/global/skills/Languages';
 import * as FrameworkCards from '@/components/global/skills/Frameworks';
@@ -25,18 +24,20 @@ toolsServicesCards.forEach((card) => toolsServicesDict.set(card.key, card));
 export function ProjectCard({ props }: ProjectProps) {
    return (
       <div className={ProjectStyles.projectCard} key={props.name}>
-      <div className={ProjectStyles.projectText}>
-         <h2>
-            <a href={props.url} target="_blank" className={ProjectStyles.projectLink}>
-               {props.name}
-            </a>
-            <GitLogo />
-         </h2>
-         <h3>{props.description}</h3>
-         <h5>Size: {props.size_string}</h5>
-         <h5>Created: {props.created_at_string}</h5>
-         <h5>Last updated: {props.pushed_at_string}</h5>
-      </div>
+         <div className={ProjectStyles.projectText}>
+            <h2>
+               <a href={props.url} target="_blank" className={ProjectStyles.projectLink}>
+                  {props.name}
+               </a>
+               {
+                  props.logo
+               }
+            </h2>
+            <h3>{props.description}</h3>
+            <h5 style={{opacity: props.size_string ? 0 : 1}}>Size: {props.size_string}</h5>
+            <h5>Created: {props.created_at_string}</h5>
+            <h5 style={{opacity: props.pushed_at_string ? 0 : 1}}>Last updated: {props.pushed_at_string}</h5>
+         </div>
          <div 
             className={SharedStyles.skillContainer} 
             style={{
@@ -59,28 +60,6 @@ export function ProjectCard({ props }: ProjectProps) {
                   })
                }
          </div>
-      </div>
-   );
-};
-
-export function GitApiErrorCard() {
-   return (
-      <div 
-         id='gitError'
-         className={ProjectStyles.projectCard}
-         key='gitError'
-         style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            fontSize: '1dvw'
-         }}>
-         <h2>
-            <a href='https://github.com/c-pill?tab=repositories' target="_blank" className={ProjectStyles.projectLink}>
-               My GitHub Projects
-            </a>
-            <GitLogo />
-         </h2>
-         <h3 style={{textAlign: 'center', justifyContent: 'center'}}>Looks like there was an issue with the GitHub API. No worries! Press this card&apos;s title to view my projects on GitHub!</h3>
       </div>
    );
 };

@@ -3,7 +3,7 @@ import ImposterMenu from '@/components/projects/imposter/ImposterMenu';
 import ImposterStyles from '@/styles/projects/imposter.module.css';
 import { useEffect, useState } from 'react';
 
-export default function testPage() {
+export default function Imposter() {
    const [playerList, setPlayerList] = useState([
       'Player 1',
       'Player 2',

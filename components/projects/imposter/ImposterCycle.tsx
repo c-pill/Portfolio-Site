@@ -50,7 +50,7 @@ export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
          colors[i] = `hsl(${hue}, ${saturation}%, ${lightness})`;
       }
       setPlayerColors(colors);
-   }, [newRound, playerList])
+   }, [])
 
    return (
       <>

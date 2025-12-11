@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&display=swap');
+
+#body {
+   display: block;
+   text-align: center;
+   width: 92dvw;
+   height: 92dvh;
+   overflow: hidden;
+}
+
+#title {
+   text-align: center;
+   font-family: 'Barrio';
+   font-size: 50px;
+}
+
+#imposterMenu {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+   height: 70dvh;
+   margin-top: 2dvh;
+}
+
+#playerList {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   gap: 1rem;
+   height: 90%;
+   overflow: scroll;
+
+   .playerName {
+      width: fit-content;
+      font-size: large;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      height: 50px;
+      line-height: 50px;
+      box-sizing: border-box;
+      text-align: center;
+      background-color: transparent;
+      border: none;
+   }
+}
+
+.imposterButton {
+   font-weight: bold;
+   padding: 5px;
+   border-radius: 8px;
+   font-size: x-large;
+}
+
+
+#imposterCount {
+   > input {
+      width: 50px;
+      height: 25px;
+      align-self: center;
+      text-align: center;
+   }
+}
+
+.emojiButton {
+   background-color: transparent;
+   border: 0px;
+   font-size: xx-large;
+}
+
+#exitButton {
+   position: absolute;
+   right: 5dvw;
+   top: 5dvw;
+   background-color: transparent;
+   border: 0px;
+   font-size: min(5dvh, 40px);
+}
+
+#cycleView {
+   height: 65%;
+   margin-top: 8dvh;
+   justify-content: center;
+   align-content: center;
+}
+
+.playerCard {
+   justify-self: center;
+   justify-content: center;
+   align-self: center;
+   display: flex;
+   flex-direction: column;
+   border-radius: 1rem;
+   border: 4px solid hsl(30, 12%, 97%);
+   background-color: aqua;
+   width: 70%;
+   max-width: 40dvh;
+   height: 75%;
+   margin-bottom: 10%;
+}

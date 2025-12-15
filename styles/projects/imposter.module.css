@@ -1,99 +1,173 @@
 @import url('https://fonts.googleapis.com/css2?family=Barrio&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
+
 
 #body {
-   display: block;
+   display: flex;
+   flex-direction: column;
    text-align: center;
-   width: 92dvw;
-   height: 92dvh;
-   overflow: hidden;
+   width: 100%;
+   height: 100%;
+   overflow-y: auto;
+   font-family: "Google Sans", sans-serif;
+   user-select: none;
+   margin-top: 20dvh;
 }
 
 #title {
+   position: absolute;
+   top: 1dvh;
+   right: 50%;
+   transform: translateX(50%);
    text-align: center;
    font-family: 'Barrio';
    font-size: 50px;
+   z-index: 2;
+   width: fit-content;
+   height: fit-content;
+   margin: auto;
+   margin-top: 5%;
+   margin-bottom: 10dvh;
 }
 
-#imposterMenu {
+#imposterStartMenu {
    display: flex;
    flex-direction: column;
    gap: 4rem;
    height: 70dvh;
-   margin-top: 2dvh;
-}
-
-#playerList {
-   display: flex;
-   flex-direction: column;
+   width: 80dvw;
    align-items: center;
-   text-align: center;
-   gap: 1rem;
-   height: 90%;
-   overflow: scroll;
+   justify-content: center;
 
-   .playerName {
-      width: fit-content;
+   #playerList {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      height: 90%;
+      width: 100%;
+      margin: auto;
+      overflow: auto;
+
+      .playerName {
+         width: fit-content;
+         font-size: large;
+         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+         height: 50px;
+         line-height: 50px;
+         box-sizing: border-box;
+         text-align: center;
+         background-color: whitesmoke;
+         border-radius: 0.5rem;
+         border: none;
+      }
+
+      .playerName:hover {
+         transition: all 0.3s ease-in-out;
+         background: rgb(218, 218, 218);
+      }
+   }
+
+   #addPlayerButton {
+      margin: auto;
+      padding: 5px;
+      border-radius: 8px;
       font-size: large;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      height: 50px;
-      line-height: 50px;
-      box-sizing: border-box;
-      text-align: center;
-      background-color: transparent;
-      border: none;
+      cursor: pointer;
    }
 }
 
-.imposterButton {
-   font-weight: bold;
-   padding: 5px;
-   border-radius: 8px;
-   font-size: x-large;
-}
+/* #imposterDictionary {
+   position: absolute;
+   display: grid;
+   grid-template-areas: 'words hints';
+   top: 50%;
+   right: 50%;
+   transform: translate(50%, -50%);
+   width: 80dvw;
+   height: 65dvh;
+   background-color: blanchedalmond;
+   border-radius: 1rem;
+   opacity: 85%;
+   align-items: center;
+   justify-items: center;
 
+   > div {
+      padding: 1%;
+      background-color: white;
+      opacity: 1;
+      height: 80%;
+      width: 90%;
+      padding-top: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: auto;
 
-#imposterCount {
-   > input {
-      width: 50px;
-      height: 25px;
-      align-self: center;
-      text-align: center;
+      > h3 {
+         position: fixed;
+         height: fit-content;
+         margin-top: -6.3dvh;
+         align-self: center;
+      }
+
+      > h4 {
+         margin-top: 2%;
+      }
    }
-}
 
-.emojiButton {
-   background-color: transparent;
-   border: 0px;
-   font-size: xx-large;
-}
+} */
 
-#exitButton {
+.topRightButton {
    position: absolute;
    right: 5dvw;
-   top: 5dvw;
+   top: 20px;
    background-color: transparent;
    border: 0px;
-   font-size: min(5dvh, 40px);
+   font-size: max(3.5dvw, 3.5dvh);
+   cursor: pointer;
+}
+
+.topLeftButton {
+   position: absolute;
+   left: 5dvw;
+   top: 20px;
+   background-color: transparent;
+   border: 0px;
+   font-size: min(3.5dvh, 40px);
+   cursor: pointer;
 }
 
 #cycleView {
-   height: 65%;
-   margin-top: 8dvh;
+   height: 65dvh;
+   width: 100dvw;
+   margin-top: auto;
    justify-content: center;
    align-content: center;
-}
+   margin-bottom: 10dvh;
 
-.playerCard {
-   justify-self: center;
-   justify-content: center;
-   align-self: center;
-   display: flex;
-   flex-direction: column;
-   border-radius: 1rem;
-   border: 4px solid hsl(30, 12%, 97%);
-   background-color: aqua;
-   width: 70%;
-   max-width: 40dvh;
-   height: 75%;
-   margin-bottom: 10%;
+   > .playerCard {
+      justify-self: center;
+      justify-content: center;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1rem;
+      border: 4px solid hsl(30, 12%, 97%);
+      width: 70%;
+      max-width: 40dvh;
+      height: 75%;
+      cursor: pointer;
+      margin: auto;
+      margin-bottom: 5dvh;
+   }
+
+   #nextPlayerButton {
+      margin: auto;
+      padding: 5px;
+      border-radius: 8px;
+      font-size: large;
+      cursor: pointer;
+   }
 }

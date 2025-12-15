@@ -5,6 +5,7 @@ import { Sort } from '@/types/sort.enum';
 import ProjectStyles from '@/styles/Projects.module.css';
 import ProjectHead from '@/components/pageHeads/ProjectHead';
 import ProjectFilter from '@/components/projects/ProjectFilter';
+import ImposterProjectCard from '@/components/projects/imposter/ImposterProjectCard';
 
 export default function ProjectList() {
    const [gitData, setGitData] = useState([]);
@@ -24,6 +25,7 @@ export default function ProjectList() {
          <Header />
          <ProjectFilter sort={sort} setSort={setSort} setSearchQuery={setSearchQuery} />
          <div className={ProjectStyles.projectList}>
+            <ImposterProjectCard />
             {
                GitToList(gitData, sort, searchQuery)
             }

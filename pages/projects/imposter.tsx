@@ -1,5 +1,6 @@
 import ImposterCycle from '@/components/projects/imposter/ImposterCycle';
-import ImposterMenu from '@/components/projects/imposter/ImposterMenu';
+import ImposterStartMenu from '@/components/projects/imposter/ImposterStartMenu';
+// import ImposterDictionary from '@/components/projects/imposter/ImposterDictionary';
 import ImposterStyles from '@/styles/projects/imposter.module.css';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ export default function Imposter() {
    ]);
    const [play, setPlay] = useState(false);
    const [imposterCount, setImposterCount] = useState(1);
+   // const [openDictionary, setOpenDictionary] = useState(false);
 
    useEffect(() => {
       const body = document.body;
@@ -25,23 +27,37 @@ export default function Imposter() {
          {
             !play ? 
             <>
-               <ImposterMenu
+               {/* <button
+                  className={ImposterStyles.topRightButton}
+                  type='button'
+                  onClick={() => setOpenDictionary(!openDictionary)}
+                  // onBlur={() => setOpenDictionary(false)}
+               >
+                  📖
+               </button> */}
+               <ImposterStartMenu
                   playerList={playerList}
                   setPlayerList={setPlayerList}
                   imposterCount={imposterCount}
                   setImposterCount={setImposterCount} 
                />
                <button
-                  className={ImposterStyles.imposterButton}
+                  className={ImposterStyles.topRightButton}
                   type='button'
                   onClick={() => setPlay(true)}
                >
-                  START
+                  ✔️
                </button>
+               {/* {
+                  openDictionary ? 
+                  <ImposterDictionary />
+                  :
+                  <></>
+               } */}
             </>
             : 
             <ImposterCycle
-               playerList={playerList}
+               playerList={playerList.filter(player => player !== '')}
                imposterCount={imposterCount}
                setPlay={setPlay}
             />

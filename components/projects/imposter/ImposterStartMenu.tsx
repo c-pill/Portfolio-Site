@@ -2,32 +2,36 @@ import ImposterStyles from '@/styles/projects/imposter.module.css';
 
 export default function ImposterMenu({ playerList, setPlayerList, imposterCount, setImposterCount }) {
    return (
-      <div id={ImposterStyles.imposterMenu}>
+      <div id={ImposterStyles.imposterStartMenu}>
          <div id={ImposterStyles.playerList}>
             {
                playerList.map((player: string, index: number) => 
                   player === '' ? null : (
-                     <input
-                        className={ImposterStyles.playerName}
-                        key={index}
-                        name='PlayerName'
-                        defaultValue={player}
-                        onBlur={(e) => {
-                           setPlayerList([...playerList.slice(0, index), e.target.value, ...playerList.slice(index+1)]);
-                        }}
-                     />
+                     <label key={index} htmlFor={player}>
+                        <input
+                           className={ImposterStyles.playerName}
+                           title={player}
+                           key={index}
+                           name='PlayerName'
+                           defaultValue={player}
+                           onBlur={(e) => {
+                              setPlayerList([...playerList.slice(0, index), e.target.value, ...playerList.slice(index+1)]);
+                           }}
+                        />
+                     </label>
                   )
                )
             }
-            <button
-               type='button'
-               onClick={() => {
-                  setPlayerList([...playerList, `Player ${playerList.length + 1}`])
-               }}
-            >
-               Add Player
-            </button>
          </div>
+         <button
+            type='button'
+            id={ImposterStyles.addPlayerButton}
+            onClick={() => {
+               setPlayerList([...playerList, `Player ${playerList.length + 1}`])
+            }}
+         >
+            Add Player
+         </button>
          {/* For changing number of imposters. Input weird so left out for now */}
          {/* <div id={ImposterStyles.imposterCount}>
             <input

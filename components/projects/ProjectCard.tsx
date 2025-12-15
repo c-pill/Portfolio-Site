@@ -23,7 +23,7 @@ toolsServicesCards.forEach((card) => toolsServicesDict.set(card.key, card));
 
 export function ProjectCard({ props }: ProjectProps) {
    return (
-      <div className={ProjectStyles.projectCard} key={props.name}>
+      <div className={ProjectStyles.projectCard} key={props.name} style={{borderColor: props.border_color}}>
          <div className={ProjectStyles.projectText}>
             <h2>
                <a href={props.url} target="_blank" className={ProjectStyles.projectLink}>
@@ -34,9 +34,9 @@ export function ProjectCard({ props }: ProjectProps) {
                }
             </h2>
             <h3>{props.description}</h3>
-            <h5 style={{opacity: props.size_string ? 0 : 1}}>Size: {props.size_string}</h5>
-            <h5>Created: {props.created_at_string}</h5>
-            <h5 style={{opacity: props.pushed_at_string ? 0 : 1}}>Last updated: {props.pushed_at_string}</h5>
+            <h4 style={{opacity: props.size_string ? 1 : 0}}>Size: {props.size_string}</h4>
+            <h4>Created: {props.created_at_string}</h4>
+            <h4 style={{opacity: props.pushed_at_string ? 1 : 0}}>Last updated: {props.pushed_at_string}</h4>
          </div>
          <div 
             className={SharedStyles.skillContainer} 

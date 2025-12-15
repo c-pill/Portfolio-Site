@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import PlayerCard from './PlayerCard';
 import imposterDict from '@/public/data/imposter/imposterDict.json' assert { type: 'json' };
 
-
 export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
    const [word, setWord] = useState('d');
+   const [hintIndex, setHintIndex] = useState(0);
    const [hints, setHints] = useState([]);
    const [reveal, setReveal] = useState(false);
    const [imposterIndicies, setImposterIndicies] = useState([]);
@@ -29,15 +29,11 @@ export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
       setHints(imposterDict[randIndex].hints);
    };
    
-   const pickHint = () => {
-      const randIndex = Math.floor(Math.random() * hints.length);
-      return hints[randIndex];
-   }
-   
    const newRound = () => {
       setPlayerIndex(0);
       designateImposters();
       newWord();
+      setHintIndex(Math.floor(Math.random() * hints.length));
    };
    
    useEffect(() => {
@@ -55,39 +51,39 @@ export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
    return (
       <>
          <button
-            id={ImposterStyles.exitButton}
+            className={ImposterStyles.topRightButton}
             type='button'
             onClick={() => setPlay(false)}
-         >
-            🚪
+            >
+            ❌
          </button>
          <div id={ImposterStyles.cycleView}>
             <PlayerCard
                player={playerList[playerIndex]}
                imposter={imposterIndicies.includes(playerIndex)}
                word={word}
-               hint={pickHint()}
+               hint={hints[hintIndex]}
                reveal={reveal}
                setReveal={setReveal}
                color={playerColors[playerIndex]}
-            />
+               />
+            <button 
+               id={ImposterStyles.nextPlayerButton}
+               type='button'
+               onClick={() => {
+                  const nextIndex = playerIndex + 1;
+                  if (nextIndex === playerList.length) {
+                     newRound();
+                  }
+                  else {
+                     setPlayerIndex(nextIndex);
+                  }
+                  setReveal(false);
+               }}
+               >
+               NEXT PLAYER
+            </button>
          </div>
-         <button 
-            className={ImposterStyles.imposterButton}
-            type='button'
-            onClick={() => {
-               const nextIndex = playerIndex + 1;
-               if (nextIndex === playerList.length) {
-                  newRound();
-               }
-               else {
-                  setPlayerIndex(nextIndex);
-               }
-               setReveal(false);
-            }}
-         >
-            NEXT PLAYER
-         </button>
       </>
    );
 };

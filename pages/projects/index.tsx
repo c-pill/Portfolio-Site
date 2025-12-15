@@ -1,15 +1,15 @@
 import Header from '@/components/global/Header';
-import { GetGitRepoData, GitToList } from '@/public/scripts/Projects.script';
+import { GetGitRepoData } from '@/public/scripts/Projects.script';
 import React, { useEffect, useState } from 'react';
 import { Sort } from '@/types/sort.enum'; 
-import ProjectStyles from '@/styles/Projects.module.css';
-import ProjectHead from '@/components/pageHeads/ProjectHead';
+import ProjectIndexHead from '@/components/pageHeads/projectHeads/IndexHead';
 import ProjectFilter from '@/components/projects/ProjectFilter';
-import ImposterProjectCard from '@/components/projects/imposter/ImposterProjectCard';
+import imposterData from '@/public/data/projectData/imposterData';
+import ProjectList from '@/components/projects/ProjectList';
 
-export default function ProjectList() {
+export default function Projects() {
    const [gitData, setGitData] = useState([]);
-   const [sort, setSort] = useState<string>(Sort.Largest);
+   const [sort, setSort] = useState<string>(Sort.Newest);
    const [searchQuery, setSearchQuery] = useState('');
 
    useEffect(() => {
@@ -21,15 +21,10 @@ export default function ProjectList() {
 
    return (
       <>
-         <ProjectHead />
+         <ProjectIndexHead />
          <Header />
          <ProjectFilter sort={sort} setSort={setSort} setSearchQuery={setSearchQuery} />
-         <div className={ProjectStyles.projectList}>
-            <ImposterProjectCard />
-            {
-               GitToList(gitData, sort, searchQuery)
-            }
-         </div>
+         <ProjectList gitProjectData={gitData} otherProjectData={[imposterData]} sort={sort} searchQuery={searchQuery} />
       </>
    );
-}
+};

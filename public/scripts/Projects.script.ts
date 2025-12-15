@@ -8,26 +8,26 @@ import { GitApiErrorCard } from "@/components/projects/GitApiErrorCard";
 import { JSX } from "react";
 import { GitLogo } from "@/components/projects/ProjectLogos";
 
+export const convertTimeToString = (dateString: string) => {
+   const date: Date = new Date(dateString);
+   const readableString = date.toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+   });
+   return readableString;
+};
+
+export const convertTimeToNumber = (dateString: string) => {
+   const date: Date = new Date(dateString);
+   return date.getTime();
+};
+
 export async function GetGitRepoData() {
-   const convertTimeToString = (dateString: string) => {
-      const date: Date = new Date(dateString);
-      const readableString = date.toLocaleString('en-US', {
-         weekday: 'long',
-         year: 'numeric',
-         month: 'long',
-         day: 'numeric',
-         hour: '2-digit',
-         minute: '2-digit',
-         hour12: true
-      });
-      return readableString;
-   };
-
-   const convertTimeToNumber = (dateString: string) => {
-      const date: Date = new Date(dateString);
-      return date.getTime();
-   };
-
    const formatSize = (size_kb: number) => {
       if (size_kb < 1000) return `${size_kb} KB`;
       size_kb /= 1000;
@@ -104,23 +104,4 @@ export function SortProjects(projectData: ProjectData[], sort: string) {
       default:
          break;
    };
-};
-
-export function GitToList(
-   gitData: ProjectData[],
-   sort: string,
-   searchQuery: string
-) {
-   if (gitData == null) return GitApiErrorCard();
-   
-   SortProjects(gitData, sort);
-   const searchLowerCase = searchQuery.toLowerCase();
-
-   const gitProjectList: JSX.Element = ProjectCards(gitData.filter((data: ProjectData) => {
-      const nameIncludes = data.name.toLowerCase().includes(searchLowerCase);
-      const descriptionIncludes = data.description.toLowerCase().includes(searchLowerCase);
-      return nameIncludes || descriptionIncludes;
-   }));
-      
-   return gitProjectList;
 };

@@ -1,3 +1,4 @@
+import ImposterHead from '@/components/pageHeads/projectHeads/ImposterHead';
 import ImposterCycle from '@/components/projects/imposter/ImposterCycle';
 import ImposterStartMenu from '@/components/projects/imposter/ImposterStartMenu';
 // import ImposterDictionary from '@/components/projects/imposter/ImposterDictionary';
@@ -22,47 +23,49 @@ export default function Imposter() {
    }, []);
 
    return (
-      <div id={ImposterStyles.body}>
-         <h1 id={ImposterStyles.title}>IMPOSTER</h1>
-         {
-            !play ? 
-            <>
-               {/* <button
-                  className={ImposterStyles.topRightButton}
-                  type='button'
-                  onClick={() => setOpenDictionary(!openDictionary)}
-                  // onBlur={() => setOpenDictionary(false)}
-               >
-                  📖
-               </button> */}
-               <ImposterStartMenu
-                  playerList={playerList}
-                  setPlayerList={setPlayerList}
+      <>
+      <ImposterHead />
+         <div id={ImposterStyles.body}>
+            <h1 id={ImposterStyles.title}>IMPOSTER</h1>
+            {
+               !play ? 
+               <>
+                  {/* <button
+                     className={ImposterStyles.topRightButton}
+                     type='button'
+                     onClick={() => setOpenDictionary(!openDictionary)}
+                     // onBlur={() => setOpenDictionary(false)}
+                  >
+                     📖
+                  </button> */}
+                  <ImposterStartMenu
+                     playerList={playerList}
+                     setPlayerList={setPlayerList}
+                     imposterCount={imposterCount}
+                     setImposterCount={setImposterCount} 
+                  />
+                  <button
+                     className={ImposterStyles.topRightButton}
+                     type='button'
+                     onClick={() => setPlay(true)}
+                  >
+                     ✔️
+                  </button>
+                  {/* {
+                     openDictionary ? 
+                     <ImposterDictionary />
+                     :
+                     <></>
+                  } */}
+               </>
+               : 
+               <ImposterCycle
+                  playerList={playerList.filter(player => player !== '')}
                   imposterCount={imposterCount}
-                  setImposterCount={setImposterCount} 
+                  setPlay={setPlay}
                />
-               <button
-                  className={ImposterStyles.topRightButton}
-                  type='button'
-                  onClick={() => setPlay(true)}
-               >
-                  ✔️
-               </button>
-               {/* {
-                  openDictionary ? 
-                  <ImposterDictionary />
-                  :
-                  <></>
-               } */}
-            </>
-            : 
-            <ImposterCycle
-               playerList={playerList.filter(player => player !== '')}
-               imposterCount={imposterCount}
-               setPlay={setPlay}
-            />
-         }
-         
-      </div>
+            }
+         </div>
+      </>
    )
 }

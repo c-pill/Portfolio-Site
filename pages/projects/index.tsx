@@ -6,6 +6,7 @@ import ProjectIndexHead from '@/components/pageHeads/projectHeads/IndexHead';
 import ProjectFilter from '@/components/projects/ProjectFilter';
 import imposterData from '@/public/data/projectData/imposterData';
 import ProjectList from '@/components/projects/ProjectList';
+import { GitLoadingCard } from '@/components/projects/GitLoadingCard';
 
 export default function Projects() {
    const [gitData, setGitData] = useState([]);
@@ -15,6 +16,7 @@ export default function Projects() {
    useEffect(() => {
       const body = document.body;
       body.style.background = 'rgb(50, 50, 50)';
+      
       GetGitRepoData()
          .then((gitData) => setGitData(gitData));
    }, []);
@@ -24,7 +26,13 @@ export default function Projects() {
          <ProjectIndexHead />
          <Header />
          <ProjectFilter sort={sort} setSort={setSort} setSearchQuery={setSearchQuery} />
-         <ProjectList gitProjectData={gitData} otherProjectData={[imposterData]} sort={sort} searchQuery={searchQuery} />
+         <ProjectList 
+            gitProjectData={gitData}
+            otherProjectData={[imposterData]}
+            otherCards={[gitData.length == 0 ? GitLoadingCard() : null]}
+            sort={sort}
+            searchQuery={searchQuery}
+         />
       </>
    );
 };

@@ -13,11 +13,13 @@ export default function Imposter() {
    ]);
    const [play, setPlay] = useState(false);
    const [imposterCount, setImposterCount] = useState(1);
-   // const [openDictionary, setOpenDictionary] = useState(false);
+   const [openRules, setOpenRules] = useState(false);
+   const [unawareImposter, setUnawareImposter] = useState(false);
 
    useEffect(() => {
       const body = document.body;
-      body.style.backgroundColor = 'rgba(165, 233, 189, 1)';
+      // body.style.backgroundColor = 'rgba(165, 233, 189, 1)';
+      body.style.backgroundColor = 'rgb(94, 202, 130)';
       body.style.justifyContent = 'center';
       body.style.alignItems = 'center';
    }, []);
@@ -28,16 +30,34 @@ export default function Imposter() {
          <div id={ImposterStyles.body}>
             <h1 id={ImposterStyles.title}>IMPOSTER</h1>
             {
+               openRules ?
+               <div id={ImposterStyles.options}>
+                  <h1>Optional Settings</h1>
+                  <div className={ImposterStyles.setting}>
+                     <h2>Unaware Imposter</h2>
+                     <input name='Imposter Knows' type='checkbox' onChange={e => setUnawareImposter(!unawareImposter)} checked={unawareImposter}/>
+                  </div>
+                  <button
+                     className={ImposterStyles.genericButton}   
+                     type='button'
+                     onClick={() => setOpenRules(false)}
+                  >
+                     Done
+                  </button>
+               </div>
+               :
+               null
+            }
+            {
                !play ? 
                <>
-                  {/* <button
-                     className={ImposterStyles.topRightButton}
+                  <button
+                     className={ImposterStyles.topLeftButton}
                      type='button'
-                     onClick={() => setOpenDictionary(!openDictionary)}
-                     // onBlur={() => setOpenDictionary(false)}
+                     onClick={() => setOpenRules(!openRules)}
                   >
-                     📖
-                  </button> */}
+                     🔧
+                  </button>
                   <ImposterStartMenu
                      playerList={playerList}
                      setPlayerList={setPlayerList}
@@ -63,6 +83,7 @@ export default function Imposter() {
                   playerList={playerList.filter(player => player !== '')}
                   imposterCount={imposterCount}
                   setPlay={setPlay}
+                  unawareImposter={unawareImposter}
                />
             }
          </div>

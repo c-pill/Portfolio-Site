@@ -1,6 +1,6 @@
 import ImposterStyles from '@/styles/projects/imposter.module.css';
 
-export default function PlayerCard({ player, imposter, word, hint, reveal, setReveal, color }) {   
+export default function PlayerCard({ player, imposter, word, hint, fakeWord, unawareImposter, reveal, setReveal, color }) {   
    return (
       <div 
          className={ImposterStyles.playerCard}
@@ -15,8 +15,15 @@ export default function PlayerCard({ player, imposter, word, hint, reveal, setRe
                {
                   imposter ? 
                   <>
-                     <h2>🚨IMPOSTER🚨</h2>
-                     <h2>Your hint is: {hint}</h2>
+                     {
+                        unawareImposter ? 
+                        <h2>{fakeWord}</h2>
+                        :
+                        <>
+                           <h2>🚨IMPOSTER🚨</h2>
+                           <h2>Your hint is: {hint}</h2>
+                        </>  
+                     }
                   </>
                   :
                   <h2>{word}</h2>

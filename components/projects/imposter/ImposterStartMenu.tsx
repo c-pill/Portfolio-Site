@@ -25,7 +25,7 @@ export default function ImposterMenu({ playerList, setPlayerList, imposterCount,
          </div>
          <button
             type='button'
-            id={ImposterStyles.addPlayerButton}
+            className={ImposterStyles.genericButton}
             onClick={() => {
                setPlayerList([...playerList, `Player ${playerList.length + 1}`])
             }}

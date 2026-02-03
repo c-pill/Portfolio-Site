@@ -3,10 +3,12 @@ import ProjectStyles from '@/styles/Projects.module.css';
 import { ProjectData } from '@/types/project-data.type';
 import { ProjectCard } from './ProjectCard';
 import { GitApiErrorCard } from './GitApiErrorCard';
+import { JSX } from 'react/jsx-runtime';
 
 export default function ProjectList({
    gitProjectData,
    otherProjectData,
+   otherCards,
    sort,
    searchQuery
 }) 
@@ -25,6 +27,9 @@ export default function ProjectList({
             }).map((project) => (
                <ProjectCard key={project.name} props={project}/>
             ))
+         }
+         { 
+            otherCards.map((card: JSX.Element) => card)
          }
          {
             !gitProjectData ? <GitApiErrorCard /> : null

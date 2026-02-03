@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import PlayerCard from './PlayerCard';
 import imposterDict from '@/public/data/imposter/imposterDict.json' assert { type: 'json' };
 
-export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
-   const [word, setWord] = useState('d');
+export default function ImposterCycle({ playerList, imposterCount, setPlay, unawareImposter }) {
+   const [word, setWord] = useState('');
+   const [fakeWord, setFakeWord] = useState('');
    const [hintIndex, setHintIndex] = useState(0);
    const [hints, setHints] = useState([]);
    const [reveal, setReveal] = useState(false);
@@ -28,11 +29,22 @@ export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
       setWord(imposterDict[randIndex].word);
       setHints(imposterDict[randIndex].hints);
    };
+
+   const newFakeWord = () => {
+      let randIndex = Math.floor(Math.random() * imposterDict.length);
+      if (imposterDict.length > 1) {
+         while (imposterDict[randIndex].word == word) {
+            randIndex = Math.floor(Math.random() * imposterDict.length);
+         }
+      }
+      setFakeWord(imposterDict[randIndex].word);
+   };
    
    const newRound = () => {
       setPlayerIndex(0);
       designateImposters();
       newWord();
+      newFakeWord();
       setHintIndex(Math.floor(Math.random() * hints.length));
    };
    
@@ -63,6 +75,8 @@ export default function ImposterCycle({ playerList, imposterCount, setPlay }) {
                imposter={imposterIndicies.includes(playerIndex)}
                word={word}
                hint={hints[hintIndex]}
+               fakeWord={fakeWord}
+               unawareImposter={unawareImposter}
                reveal={reveal}
                setReveal={setReveal}
                color={playerColors[playerIndex]}

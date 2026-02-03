@@ -82,7 +82,8 @@
    display: flex;
    flex: 0 0 auto;
    width: 300px;
-   height: 300px;
+   height: 'auto';
+   aspect-ratio: 1/1;
    flex-direction: column;
    background-color: white;
    border-radius: 2rem;
@@ -114,7 +115,7 @@
          line-clamp: 4;
          -webkit-line-clamp: 4;
          overflow: auto;
-         font-size: small;
+         /* font-size: small; */
          text-overflow: ellipsis;
       }
 
@@ -136,11 +137,12 @@
    display: flex;
    flex-direction: row;
    justify-content: center;
-   max-width: 90dvw;
    flex-wrap: wrap;
+   width: 90dvw;
    height: fit-content;
-   margin: 10px auto 10% auto;
-   gap: 3em;
+   gap: 2rem 4.5rem;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 /* .languageContainer {

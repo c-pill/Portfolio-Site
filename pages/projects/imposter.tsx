@@ -18,7 +18,6 @@ export default function Imposter() {
 
    useEffect(() => {
       const body = document.body;
-      // body.style.backgroundColor = 'rgba(165, 233, 189, 1)';
       body.style.backgroundColor = 'rgb(94, 202, 130)';
       body.style.justifyContent = 'center';
       body.style.alignItems = 'center';

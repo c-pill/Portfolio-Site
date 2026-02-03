@@ -13,5 +13,5 @@ export default function ProfilePicture() {
             style={{ height: 'auto' }}
             priority
         />
-    )
-}
+    );
+};

@@ -1,13 +1,11 @@
 import Header from '@/components/global/Header';
 import ProfilePicture from '@/components/home/ProfilePicture';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '@/styles/Home.module.css';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import HomeHead from '@/components/pageHeads/HomeHead';
 
 export default function Home() {
-   const [animated, setAnimated] = useState(false);
-
    const tooSmall = useMediaQuery('(max-height: 373px), (max-width: 393)');
 
    useEffect(() => {    
@@ -26,15 +24,15 @@ export default function Home() {
       content.style.background = 'none';
       content.style.width = '100%';
       content.style.marginTop = '-10%';
-      
-      if (animated) {
+
+      if (!sessionStorage.getItem('visited')) {
+         sessionStorage.setItem('visited', 'true');
+      }
+      else {
          greeting.style.transition = 'all 0s';
          welcome.style.transition = 'all 0s';
          excuse.style.transition = 'all 0s';
          profilePicture.style.transition = 'all 0s';
-      }
-      else {
-         setAnimated(true);
       }
 
       greeting.style.opacity = '1';
@@ -47,7 +45,7 @@ export default function Home() {
       profilePicture.style.right = '5%';
 
       excuse.style.opacity = '1';
-   }, [animated, tooSmall]);
+   }, [tooSmall]);
 
    return (
       <>

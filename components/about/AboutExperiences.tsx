@@ -28,14 +28,14 @@ export function UgaAi() {
                      University of Georgia
                   </h3>
                   <h4>
-                     Master of Science in Computer Science
+                     Master of Science in Artificial Intelligence
                   </h4>
                   <h5>
                      Expected to graduate May 2026
                   </h5>
                   <ul>
                      <li>
-                        GPA: N/A
+                        GPA: 4.0/4.0
                      </li>
                      <li>
                         Will have completed a Master&apos;s Thesis

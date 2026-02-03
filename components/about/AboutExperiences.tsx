@@ -3,7 +3,9 @@ import SharedStyles from '@/styles/Shared.module.css';
 import Image from 'next/image';
 import { Asm, C, Cpp, Cs, Css, Html, Java, Javascript, Python, Sql, Typescript } from '@/components/global/skills/Languages';
 import { Anaconda, DevOps, ESLint, Figma, GitHub, Jupyter, Kaggle, Matlab, MicrosoftSqlServer, MSOffice, 
-         MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka, MongoDB } from '@/components/global/skills/ToolsAndServices';
+         MySql, OpenAI, Postman, SwaggerUI, VirtualBox, VisualStudio, VisualStudioCode, Weka, MongoDB, 
+         Praat,
+         MemoQ} from '@/components/global/skills/ToolsAndServices';
 import { MongooseODM, ReactJS, NodeJS, SpringBoot, Contentful, NestJS, DotNet } from '@/components/global/skills/Frameworks';
 
 export function UgaAi() {
@@ -56,6 +58,8 @@ export function UgaAi() {
             <Cpp />
             <GitHub />
             <MSOffice />
+            <Praat />
+            <MemoQ />
          </div>
       </div>
    );

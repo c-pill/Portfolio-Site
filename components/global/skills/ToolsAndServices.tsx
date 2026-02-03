@@ -287,3 +287,25 @@ export function MongoDB({ shadowOn = true }) {
     };
     return <SkillCard key='MongoDB' props={data} />;
 };
+
+export function MemoQ({ shadowOn = true }) {
+    const data: SkillData = {
+        href: 'https://www.memoq.com/product/memoq-translator-pro/',
+        title: 'MemoQ',
+        alt: 'MemoQ',
+        src: '/images/skills/MemoQ.png',
+        shadowOn
+    };
+    return <SkillCard key='MemoQ' props={data} />;
+};
+
+export function Praat({ shadowOn = true }) {
+    const data: SkillData = {
+        href: 'https://praat.org/',
+        title: 'Praat',
+        alt: 'Praat',
+        src: '/images/skills/Praat.png',
+        shadowOn
+    };
+    return <SkillCard key='Praat' props={data} />;
+};

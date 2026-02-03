@@ -35,6 +35,3 @@ export function SkillCard({ props }: SkillProps) {
         </a>
     );
 };
-
-
-// '0px 0px 10px 6px grey'

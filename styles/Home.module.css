@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+IE:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1400px) {
     #greeting {
         display: block;
         margin-top: 10%;
@@ -130,4 +130,50 @@
         transition:
             opacity 1s ease-in 3.5s,
     }
+} */
+
+#homeContainer {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap-reverse;
+   align-items: center;
+   justify-content: space-evenly;
+   gap: 1em;
+   width: 90dvw;
+   height: auto;
+   margin-left: 50%;
+   transform: translateX(-50%);
+   /* background-color: red;
+   border: 10px solid black; */
+}
+
+#greeting {
+   position: relative;
+   font-family: "Nova Mono", monospace;
+   font-size: 5em;
+   font-weight: 500;
+}
+
+#welcome {
+   position: relative;
+   font-family: 'Limelight', sans-serif;
+   font-size: 2em;
+}
+
+#profilePicture {
+   position: relative;
+   height: auto;
+   width: min(85dvw, 50dvh);
+   border-radius: 50%;
+   border: 10px solid black;
+}
+
+#excuse {
+   position: relative;
+   font-family: "Playwrite IE", cursive;
+   /* font-size: 1.5dvh;
+   font-weight: 500; */
+   /* transition:
+      opacity 1s ease-in 3.5s, */
 }

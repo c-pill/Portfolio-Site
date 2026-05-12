@@ -33,17 +33,17 @@ export function UgaAi() {
                      Master of Science in Artificial Intelligence
                   </h4>
                   <h5>
-                     Expected to graduate May 2026
+                     Graduated May 2026
                   </h5>
                   <ul>
                      <li>
-                        GPA: 4.0/4.0
+                        GPA: 3.95/4.0
                      </li>
                      <li>
-                        Will have completed a Master&apos;s Thesis
+                        Completed a 2 year program in 1 year ⏩
                      </li>
                      <li>
-                        In progress! ⚒️
+                        Finished a Master&apos;s Thesis revolving around Evolutionary AI 🐒
                      </li>
                   </ul>
             </div>
@@ -81,10 +81,15 @@ export function UgaCsci() {
                </h5>
                <ul>
                   <li>
-                     GPA: 3.88/4.00
+                     GPA: 3.88/4.0
                   </li>
                   <li>
-                     Studied abroad in Big Island, Hawai&apos;i
+                     Took graduate level courses early as part of the
+                     <a href='https://doubledawgs.uga.edu/ProgramDetails/10080' style={{fontWeight: 'bold'}} target='_blank'> Double Dawgs Program </a>
+                     📚
+                  </li>
+                  <li>
+                     Studied abroad in Big Island, Hawai&apos;i 🏖️
                   </li>
                </ul>
             </div>
@@ -131,6 +136,56 @@ export function UgaCsci() {
     );
 };
 
+export function Pariveda() {
+   return (
+      <div className={AboutStyles.experienceContainer}>
+         <div className={AboutStyles.content}>
+            <a 
+               href='https://parivedasolutions.com/'
+               target='_blank'
+               title='Pariveda'
+            >
+                <Image
+                  className={AboutStyles.experienceImage}
+                  alt='Pariveda'
+                  src='/images/experiences/pariveda.gif'
+                  width={100}
+                  height={100}
+               />
+            </a>
+            <div className={AboutStyles.experienceText}>
+               <h3>
+                  Pariveda
+               </h3>
+               <h4>
+                  Software Engineer, Consultant
+               </h4>
+               <h5>
+                  July 2026 - Present
+               </h5>
+               <ul>
+                  <li>
+                     Work in small teams to solve client problems
+                  </li>
+                  <li>
+                     Develop applications in various languages and frameworks
+                  </li>
+                  <li>
+                     Utilize AI strategically to enhance client solutions and accelerate delivery
+                  </li>
+                  <li>
+                     Incorporate AI tools to streamline development and uncover insights
+                  </li>
+               </ul>
+            </div>
+         </div>
+         {/* <div className={SharedStyles.skillContainer} >
+            
+         </div> */}
+      </div>
+   );
+};
+
 export function UgaResearch() {
    return (
       <div className={AboutStyles.experienceContainer}>
@@ -143,14 +198,17 @@ export function UgaResearch() {
                   Graduate Student Researcher
                </h4>
                <h5>
-                  September 2025 - Present
+                  September 2025 - April 2026
                </h5>
                <ul>
                   <li>
-                     Perform scholarly research
+                     Performed scholarly research on RAG systems and human-AI trust
                   </li>
                   <li>
-                     Assist in writing scholarly work
+                     Wrote publishable scholarly work as a secondary author
+                  </li>
+                  <li>
+                     Assisted in formulating research questions and methodology
                   </li>
                </ul>
             </div>

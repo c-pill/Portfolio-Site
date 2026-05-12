@@ -30,19 +30,20 @@ html {
    padding: 1.25em;
    margin: 2dvh auto 7dvh auto;
    width: fit-content;
-   height: clamp(5px, 1vw, 20px);
+   max-width: 80dvw;
+   height: clamp(10px, 1vw, 20px);
    background-color: gainsboro;
    border-radius: 5em;
 }
 
 #header > * {
    color: black;
-   padding: 0 2em;
+   padding: 1em 2em;
    text-decoration: none;
    user-select: none;
    width: fit-content;
    height: fit-content;
-   font-size: clamp(10px, 1dvw, 15px);
+   font-size: clamp(10px, 2dvw, 15px);
    font-weight: bold;
 }
 

@@ -132,3 +132,14 @@ export function Asm({ shadowOn = true }) {
     };
     return <SkillCard key='ASM' props={data} />;
 };
+
+export function JupyterNotebook({ shadowOn = true }) {
+   const data: SkillData = {
+        href: 'https://jupyter.org/',
+        title: 'JupyterNotebook',
+        alt: 'JupyterNotebook',
+        src: '/images/skills/Jupyter.svg',
+        shadowOn
+    };
+    return <SkillCard key='JupyterNotebook' props={data} />;
+};

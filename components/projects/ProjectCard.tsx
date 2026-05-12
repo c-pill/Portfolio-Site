@@ -48,10 +48,11 @@ export function ProjectCard({ props }: ProjectProps) {
             }}
          >
                {
-                  props.languages.map((language) => languageDict.get(language))
+                  props.languages.map((language) => languageDict.get(language.replace(/\s+/g, "")))
                }
                {
                   [...new Set(props.description.split(' '))].map((word) => {
+                     word = word.replace(/\s+/g, "");
                      if (/\p{P}/u.test(word.slice(-1))) word = word.slice(0, -1);
                      let dictResult = frameworkDict.get(word);
                      if (dictResult) return dictResult;
